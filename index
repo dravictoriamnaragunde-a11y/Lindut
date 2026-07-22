@@ -1,0 +1,1666 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lindüt — Belleza a tu medida</title>
+    <meta name="description" content="Lindüt conecta clientes con profesionales de estética independientes verificados. Manicuras, peluqueras, barberos, maquilladoras y más. Vos elegís quién y a qué precio.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&family=Great+Vibes&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'lindut-black': '#1A0F1C',
+                        'lindut-dark': '#2D1B2E',
+                        'lindut-wine': '#4A1C3D',
+                        'lindut-rose': '#8B3A5C',
+                        'lindut-blush': '#C06C84',
+                        'lindut-pink': '#D4A5A5',
+                        'lindut-cream': '#F5E6D3',
+                        'lindut-gold': '#C9A96E',
+                        'lindut-gold-light': '#E8D5B7',
+                        'lindut-gold-dark': '#A67B5B',
+                        'lindut-champagne': '#F0E6D2',
+                        'lindut-lavender': '#9B8AA5',
+                        'lindut-sage': '#8FA68E',
+                        'lindut-ivory': '#FAF7F2',
+                        'lindut-stone': '#E8E0E3',
+                        'lindut-espresso': '#3D2B3E',
+                        'lindut-taupe': '#B8A9A1',
+                        'lindut-warm-white': '#FDF9F6',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'serif'],
+                        display: ['Playfair Display', 'serif'],
+                        script: ['Great Vibes', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        [x-cloak] { display: none !important; }
+        body:not(.alpine-ready) [x-data] { display: none !important; }
+        .text-gold-gradient { background: linear-gradient(135deg, #C9A96E 0%, #E8D5B7 50%, #A67B5B 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .text-rose-gradient { background: linear-gradient(135deg, #C06C84 0%, #8B3A5C 50%, #4A1C3D 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .glass-panel { background: rgba(255, 255, 255, 0.97); backdrop-filter: blur(20px); border: 1px solid rgba(201, 169, 110, 0.15); }
+        .glass-dark { background: rgba(45, 27, 46, 0.95); backdrop-filter: blur(20px); border: 1px solid rgba(201, 169, 110, 0.1); }
+        .card-hover { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid transparent; }
+        .card-hover:hover { border-color: #C9A96E; transform: translateY(-4px); box-shadow: 0 20px 40px rgba(74, 28, 61, 0.12); }
+        .btn-gold { background: linear-gradient(135deg, #C9A96E 0%, #A67B5B 100%); transition: all 0.3s ease; }
+        .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201, 169, 110, 0.35); }
+        .btn-wine { background: linear-gradient(135deg, #4A1C3D 0%, #2D1B2E 100%); transition: all 0.3s ease; }
+        .btn-wine:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(74, 28, 61, 0.35); }
+        .btn-blush { background: linear-gradient(135deg, #C06C84 0%, #8B3A5C 100%); transition: all 0.3s ease; }
+        .btn-blush:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(192, 108, 132, 0.35); }
+        .input-lindut { transition: all 0.3s ease; border: 1.5px solid #E8E0E3; background: #FDF9F6; }
+        .input-lindut:focus { border-color: #C9A96E; box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.15); outline: none; background: white; }
+        .fade-in { animation: fadeIn 0.6s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+        .shimmer { background: linear-gradient(90deg, transparent, rgba(201,169,110,0.08), transparent); background-size: 200% 100%; animation: shimmer 2s infinite; }
+        @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+        .logo-lindut { filter: drop-shadow(0 4px 12px rgba(201, 169, 110, 0.2)); }
+        .admin-trigger { position: fixed; bottom: 8px; right: 8px; width: 14px; height: 14px; background: linear-gradient(135deg, #C9A96E, #A67B5B); border-radius: 50%; opacity: 0.12; cursor: pointer; z-index: 9999; transition: all 0.3s ease; }
+        .admin-trigger:hover { opacity: 0.8; transform: scale(1.3); box-shadow: 0 4px 15px rgba(201,169,110,0.4); }
+        .pro-trigger { position: fixed; bottom: 8px; left: 8px; width: 14px; height: 14px; background: linear-gradient(135deg, #4A1C3D, #8B3A5C); border-radius: 50%; opacity: 0.12; cursor: pointer; z-index: 9999; transition: all 0.3s ease; }
+        .pro-trigger:hover { opacity: 0.8; transform: scale(1.3); box-shadow: 0 4px 15px rgba(74,28,61,0.4); }
+        .scroll-hide::-webkit-scrollbar { display: none; }
+        .scroll-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        .star-rating { color: #C9A96E; }
+        .tag-pill { background: linear-gradient(135deg, rgba(201,169,110,0.1), rgba(201,169,110,0.05)); border: 1px solid rgba(201,169,110,0.2); }
+        .separator-gold { height: 1px; background: linear-gradient(90deg, transparent, #C9A96E, transparent); }
+        .hero-pattern { background-image: radial-gradient(circle at 25% 25%, rgba(201,169,110,0.03) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(192,108,132,0.03) 0%, transparent 50%); }
+        .font-display { font-family: 'Cormorant Garamond', serif; }
+        .font-body { font-family: 'Inter', sans-serif; }
+        .tracking-luxury { letter-spacing: 0.25em; }
+        .tracking-elegant { letter-spacing: 0.15em; }
+        .micro-accent::after { content: ''; display: block; width: 24px; height: 1px; background: linear-gradient(90deg, #C9A96E, #E8D5B7); margin-top: 8px; }
+        .texture-overlay { position: relative; }
+        .texture-overlay::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; z-index: 1; }
+        .elegant-scroll::-webkit-scrollbar { width: 4px; }
+        .elegant-scroll::-webkit-scrollbar-track { background: transparent; }
+        .elegant-scroll::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #C9A96E, #E8D5B7); border-radius: 4px; }
+        .shadow-luxury { box-shadow: 0 4px 20px rgba(26, 15, 28, 0.06), 0 1px 3px rgba(26, 15, 28, 0.04); }
+        .heritage-serif { font-family: 'Cormorant Garamond', serif; font-weight: 300; letter-spacing: 0.02em; }
+    </style>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<base target="_blank">
+<base target="_blank">
+</head>
+<body class="font-body bg-lindut-warm-white text-lindut-dark antialiased" x-data="lindutApp()">
+    <script>
+        document.addEventListener('alpine:init', function() {
+            document.body.classList.add('alpine-ready');
+        });
+    </script>
+
+    <!-- ADMIN TRIGGER -->
+    <div class="admin-trigger" @click="abrirAdmin()" title="Panel Admin"></div>
+    <!-- PROFESIONAL TRIGGER -->
+    <div class="pro-trigger" @click="abrirPanelProfesional()" title="Panel Profesional"></div>
+
+    <!-- MODAL LOGIN ADMIN -->
+    <div x-show="adminModal" x-cloak class="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-md" @click.self="adminModal = false">
+        <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full mx-4 border border-lindut-stone">
+            <div class="text-center mb-6">
+                <div class="w-14 h-14 bg-lindut-black rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-lg">
+                    <span class="text-2xl">🔐</span>
+                </div>
+                <h3 class="text-lg font-display font-bold text-lindut-black">Panel de Validación</h3>
+                <p class="text-xs text-lindut-lavender mt-1 tracking-elegant">Acceso exclusivo administrador</p>
+            </div>
+            <form @submit.prevent="loginAdmin()" class="space-y-4">
+                <div>
+                    <input type="password" x-model="adminPassword" placeholder="Contraseña de admin" class="input-lindut w-full px-4 py-3 rounded-xl text-sm text-center font-mono tracking-widest">
+                </div>
+                <p x-show="adminError" x-text="adminError" class="text-xs text-red-500 text-center font-medium"></p>
+                <button type="submit" class="w-full btn-wine text-white py-3 rounded-xl font-bold text-sm tracking-wide">Ingresar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-panel shadow-sm border-b border-lindut-stone/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-18">
+                <div class="flex items-center gap-3 cursor-pointer" @click="view = 'home'">
+                    <!-- NEW LINDÜT LOGO - Quiet Luxury Heritage Design -->
+                    <svg class="w-10 h-10 logo-lindut" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="goldRing" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#E8D5B7"/>
+                                <stop offset="40%" stop-color="#C9A96E"/>
+                                <stop offset="70%" stop-color="#A67B5B"/>
+                                <stop offset="100%" stop-color="#8B6914"/>
+                            </linearGradient>
+                            <linearGradient id="wineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#5A2448"/>
+                                <stop offset="50%" stop-color="#4A1C3D"/>
+                                <stop offset="100%" stop-color="#2D1B2E"/>
+                            </linearGradient>
+                            <linearGradient id="blushGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#D4A5A5"/>
+                                <stop offset="50%" stop-color="#C06C84"/>
+                                <stop offset="100%" stop-color="#8B3A5C"/>
+                            </linearGradient>
+                            <filter id="dropShadowGold" x="-30%" y="-30%" width="160%" height="160%">
+                                <feDropShadow dx="1" dy="3" stdDeviation="5" flood-color="#C9A96E" flood-opacity="0.2"/>
+                            </filter>
+                        </defs>
+                        <ellipse cx="60" cy="112" rx="36" ry="8" fill="#1A0F1C" opacity="0.06"/>
+                        <circle cx="60" cy="60" r="54" fill="none" stroke="url(#goldRing)" stroke-width="1.5" opacity="0.85"/>
+                        <circle cx="60" cy="60" r="50" fill="none" stroke="#C9A96E" stroke-width="0.4" opacity="0.25"/>
+                        <circle cx="60" cy="6" r="1.5" fill="#C9A96E" opacity="0.6"/>
+                        <circle cx="60" cy="114" r="1.5" fill="#C9A96E" opacity="0.6"/>
+                        <circle cx="6" cy="60" r="1.5" fill="#C9A96E" opacity="0.6"/>
+                        <circle cx="114" cy="60" r="1.5" fill="#C9A96E" opacity="0.6"/>
+                        <path d="M60 16 C 38 16, 22 34, 22 56 C 22 78, 38 94, 60 98 C 82 94, 98 78, 98 56 C 98 34, 82 16, 60 16 Z" fill="url(#wineGrad)" stroke="url(#goldRing)" stroke-width="1.2" filter="url(#dropShadowGold)"/>
+                        <path d="M60 26 C 46 26, 36 38, 36 54 C 36 70, 46 82, 60 86 C 74 82, 84 70, 84 54 C 84 38, 74 26, 60 26 Z" fill="url(#blushGrad)" opacity="0.5"/>
+                        <path d="M60 32 Q 54 44 48 56 Q 54 50 60 48 Q 66 50 72 56 Q 66 44 60 32" fill="#E8D5B7" opacity="0.85"/>
+                        <circle cx="60" cy="60" r="10" fill="none" stroke="url(#goldRing)" stroke-width="1" opacity="0.5"/>
+                        <circle cx="60" cy="60" r="7" fill="none" stroke="#E8D5B7" stroke-width="0.5" opacity="0.3"/>
+                        <path d="M44 74 Q 60 88 76 74" fill="none" stroke="#C9A96E" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+                        <path d="M34 40 Q 40 36 46 42" fill="none" stroke="#E8D5B7" stroke-width="0.8" stroke-linecap="round" opacity="0.35"/>
+                        <path d="M86 40 Q 80 36 74 42" fill="none" stroke="#E8D5B7" stroke-width="0.8" stroke-linecap="round" opacity="0.35"/>
+                        <text x="60" y="108" text-anchor="middle" fill="#C9A96E" font-size="4" font-family="'Cormorant Garamond', serif" letter-spacing="2" opacity="0.5">EST. 2026</text>
+                    </svg>
+                    <div>
+                        <span class="text-2xl font-display font-light text-gold-gradient tracking-tight">Lindüt</span>
+                        <span class="hidden sm:inline text-[10px] text-lindut-lavender ml-2 tracking-[0.3em] uppercase font-body">Argentina</span>
+                    </div>
+                </div>
+                <nav class="hidden md:flex items-center gap-6">
+                    <button @click="view = 'home'" class="text-sm font-medium text-lindut-lavender hover:text-lindut-wine transition-colors cursor-pointer tracking-elegant">Inicio</button>
+                    <button @click="view = 'cliente'" class="text-sm font-medium text-lindut-lavender hover:text-lindut-wine transition-colors cursor-pointer tracking-elegant">Soy Cliente</button>
+                    <button @click="view = 'profesional'" class="text-sm font-medium text-lindut-lavender hover:text-lindut-wine transition-colors cursor-pointer tracking-elegant">Soy Profesional</button>
+                    <button @click="view = 'login-profesional'" class="text-sm font-medium text-lindut-gold hover:text-lindut-gold-dark transition-colors cursor-pointer font-bold tracking-elegant">✨ Acceso Profesionales</button>
+                    <button @click="view = 'tyc'" class="text-sm font-medium text-lindut-lavender hover:text-lindut-wine transition-colors cursor-pointer tracking-elegant">Términos</button>
+                </nav>
+                <button @click="mobileMenu = !mobileMenu" class="md:hidden p-2 rounded-lg hover:bg-lindut-cream/50">
+                    <svg class="w-6 h-6 text-lindut-wine" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <div x-show="mobileMenu" x-cloak x-transition class="md:hidden border-t border-lindut-stone bg-white">
+            <div class="px-4 py-3 space-y-2">
+                <button @click="view = 'home'; mobileMenu = false" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-lindut-cream/30 text-sm font-medium cursor-pointer tracking-elegant">Inicio</button>
+                <button @click="view = 'cliente'; mobileMenu = false" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-lindut-cream/30 text-sm font-medium cursor-pointer tracking-elegant">Soy Cliente</button>
+                <button @click="view = 'profesional'; mobileMenu = false" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-lindut-cream/30 text-sm font-medium cursor-pointer tracking-elegant">Soy Profesional</button>
+                <button @click="view = 'login-profesional'; mobileMenu = false" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-lindut-cream/30 text-sm font-medium cursor-pointer text-lindut-gold font-bold tracking-elegant">✨ Acceso Profesionales</button>
+                <button @click="view = 'tyc'; mobileMenu = false" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-lindut-cream/30 text-sm font-medium cursor-pointer tracking-elegant">Términos y Condiciones</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="h-18"></div>
+
+    <!-- VIEW: ADMIN -->
+    <div x-show="view === 'admin'" x-cloak class="min-h-screen bg-lindut-warm-white pb-20 fade-in">
+        <div class="bg-lindut-black border-b border-lindut-wine/30">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <button @click="view = 'home'" class="text-sm text-lindut-lavender hover:text-lindut-cream flex items-center gap-1 tracking-elegant">← Volver al inicio</button>
+                        <h1 class="text-2xl sm:text-3xl font-display font-bold text-lindut-cream mt-2">🔐 Panel de Validación de Pagos</h1>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <button @click="view = 'admin-profesionales'" class="text-xs btn-blush text-white px-4 py-2 rounded-lg font-bold transition tracking-elegant">👥 Gestión Profesionales</button>
+                        <div class="text-xs text-lindut-lavender bg-lindut-dark px-3 py-1.5 rounded-lg tracking-elegant">Admin: Activo</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-4xl mx-auto px-4 py-8 space-y-8">
+            <div class="bg-white rounded-2xl shadow-luxury p-8 border border-lindut-stone">
+                <h2 class="text-xl font-display font-bold text-lindut-black mb-2">Generar Código de Desbloqueo</h2>
+                <p class="text-sm text-lindut-lavender mb-6 tracking-elegant">Ingresá el monto exacto acreditado en la cuenta bancaria para generar el código único de validación.</p>
+                <div class="grid md:grid-cols-2 gap-4 mb-6">
+                    <div>
+                        <label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Monto acreditado ($ARS) *</label>
+                        <input type="number" x-model="adminMonto" placeholder="Ej: 15000" class="input-lindut w-full px-4 py-3 rounded-xl text-sm font-mono">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">ID de Solicitud (opcional)</label>
+                        <input type="text" x-model="adminSolicitudId" placeholder="Ej: LND-001" class="input-lindut w-full px-4 py-3 rounded-xl text-sm font-mono">
+                    </div>
+                </div>
+                <button @click="generarCodigoAdmin()" class="btn-gold text-white px-6 py-3 rounded-xl font-bold text-sm tracking-elegant">Generar Código de Validación</button>
+                <div x-show="codigoGenerado" class="mt-6 bg-emerald-50/80 border border-emerald-200 rounded-xl p-6 text-center">
+                    <p class="text-xs text-emerald-700 font-bold uppercase tracking-wider mb-2 tracking-luxury">Código Generado — Desbloqueo Habilitado</p>
+                    <div class="flex items-center justify-center gap-3">
+                        <div class="bg-white border-2 border-emerald-300 rounded-xl px-6 py-4">
+                            <span class="text-3xl font-black font-mono tracking-[0.3em] text-emerald-800" x-text="codigoGenerado"></span>
+                        </div>
+                        <button @click="copiarCodigoAdmin()" class="bg-emerald-600 text-white px-4 py-3 rounded-xl text-sm font-bold hover:bg-emerald-700 transition tracking-elegant">📋 Copiar</button>
+                    </div>
+                    <p class="text-[10px] text-emerald-500 mt-3 tracking-elegant">Este código expira a las 23:59 hs del día de hoy. El profesional puede verificar el desbloqueo desde su pantalla ingresando el monto exacto.</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-luxury p-8 border border-lindut-stone">
+                <h2 class="text-lg font-display font-bold text-lindut-black mb-4">Códigos Generados Hoy</h2>
+                <div x-show="codigosHistorial.length === 0" class="text-sm text-lindut-lavender text-center py-8 tracking-elegant">No se generaron códigos hoy.</div>
+                <div class="space-y-2">
+                    <template x-for="(item, idx) in codigosHistorial" :key="idx">
+                        <div class="flex items-center justify-between bg-lindut-warm-white rounded-lg p-3 border border-lindut-stone">
+                            <div>
+                                <span class="font-mono font-bold text-lindut-black text-sm" x-text="item.codigo"></span>
+                                <span class="text-xs text-lindut-lavender ml-2" x-text="'$' + item.monto + ' ARS'"></span>
+                                <span class="text-[10px] text-lindut-lavender/60 ml-2" x-text="item.hora"></span>
+                            </div>
+                            <span class="text-[10px] px-2 py-1 rounded-full font-bold tracking-elegant" :class="item.usado ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700'" x-text="item.usado ? 'Usado' : 'Activo'"></span>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIEW: ADMIN PROFESIONALES -->
+    <div x-show="view === 'admin-profesionales'" x-cloak class="min-h-screen bg-lindut-warm-white pb-20 fade-in">
+        <div class="bg-lindut-black border-b border-lindut-wine/30">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <button @click="view = 'admin'" class="text-sm text-lindut-lavender hover:text-lindut-cream flex items-center gap-1 tracking-elegant">← Volver a Validación</button>
+                        <h1 class="text-2xl sm:text-3xl font-display font-bold text-lindut-cream mt-2">👥 Gestión de Profesionales</h1>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <button @click="exportarCSV()" class="text-xs bg-emerald-700 hover:bg-emerald-600 text-white px-3 py-2 rounded-lg font-bold transition tracking-elegant">📊 Exportar CSV</button>
+                        <div class="text-xs text-lindut-lavender bg-lindut-dark px-3 py-1.5 rounded-lg tracking-elegant">Admin: Activo</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-6xl mx-auto px-4 py-8 space-y-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-white rounded-xl shadow-luxury p-4 border border-lindut-stone text-center">
+                    <p class="text-2xl font-black text-lindut-wine font-display" x-text="profesionalesRegistrados.length"></p>
+                    <p class="text-xs text-lindut-lavender font-bold tracking-elegant">Total Profesionales</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-luxury p-4 border border-lindut-stone text-center">
+                    <p class="text-2xl font-black text-emerald-600 font-display" x-text="profesionalesActivos().length"></p>
+                    <p class="text-xs text-lindut-lavender font-bold tracking-elegant">Activos</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-luxury p-4 border border-lindut-stone text-center">
+                    <p class="text-2xl font-black text-red-500 font-display" x-text="profesionalesDeBaja().length"></p>
+                    <p class="text-xs text-lindut-lavender font-bold tracking-elegant">De Baja</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-luxury p-4 border border-lindut-stone text-center">
+                    <p class="text-2xl font-black text-lindut-gold font-display" x-text="totalOPsAsignadas()"></p>
+                    <p class="text-xs text-lindut-lavender font-bold tracking-elegant">OPs Asignadas</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-luxury p-8 border border-lindut-stone">
+                <h2 class="text-xl font-display font-bold text-lindut-black mb-2">➕ Alta Manual de Profesional</h2>
+                <p class="text-sm text-lindut-lavender mb-6 tracking-elegant">Completá los datos para dar de alta un profesional manualmente.</p>
+                <form @submit.prevent="altaManualProfesional()" class="space-y-5">
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Nombre *</label>
+                            <input type="text" x-model="altaForm.nombre" required class="input-lindut w-full px-4 py-3 rounded-xl text-sm" placeholder="Ej: María">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Apellido *</label>
+                            <input type="text" x-model="altaForm.apellido" required class="input-lindut w-full px-4 py-3 rounded-xl text-sm" placeholder="Ej: López">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">DNI (sin puntos) *</label>
+                            <input type="text" x-model="altaForm.dni" required pattern="[0-9]{7,8}" class="input-lindut w-full px-4 py-3 rounded-xl text-sm font-mono" placeholder="Ej: 34567890">
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Email *</label>
+                            <input type="email" x-model="altaForm.email" required class="input-lindut w-full px-4 py-3 rounded-xl text-sm font-mono" placeholder="Ej: maria@email.com">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Teléfono</label>
+                            <input type="tel" x-model="altaForm.telefono" class="input-lindut w-full px-4 py-3 rounded-xl text-sm" placeholder="Ej: +54 9 11 1234-5678">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Especialidad *</label>
+                            <select x-model="altaForm.especialidad" required class="input-lindut w-full px-4 py-3 rounded-xl text-sm bg-white">
+                                <option value="Manicura / Pedicura">Manicura / Pedicura</option>
+                                <option value="Peluquería / Colorimetría">Peluquería / Colorimetría</option>
+                                <option value="Barbería">Barbería</option>
+                                <option value="Maquillaje">Maquillaje</option>
+                                <option value="Estética Facial">Estética Facial</option>
+                                <option value="Depilación">Depilación</option>
+                                <option value="Masajes / Spa">Masajes / Spa</option>
+                                <option value="Pestañas / Cejas">Pestañas / Cejas</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">CUIT / CUIL</label>
+                            <input type="text" x-model="altaForm.cuit" pattern="[0-9]{11}" class="input-lindut w-full px-4 py-3 rounded-xl text-sm font-mono" placeholder="Ej: 27345678901">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Años de Experiencia</label>
+                            <input type="number" x-model="altaForm.experiencia" class="input-lindut w-full px-4 py-3 rounded-xl text-sm" placeholder="Ej: 5">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Modalidad</label>
+                            <select x-model="altaForm.modalidad" class="input-lindut w-full px-4 py-3 rounded-xl text-sm bg-white">
+                                <option value="domicilio">Solo a Domicilio</option>
+                                <option value="local">Solo en Local</option>
+                                <option value="ambos">Ambas</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div x-show="altaForm.nombre && altaForm.apellido && altaForm.dni" class="bg-amber-50/60 border border-amber-200 rounded-xl p-4">
+                        <p class="text-xs font-bold text-amber-700 mb-2 tracking-elegant">🔑 Credenciales que se generarán:</p>
+                        <div class="grid grid-cols-2 gap-4 text-sm">
+                            <p class="text-amber-600">Usuario: <strong class="font-mono" x-text="generarUsuarioDesdeDatos(altaForm.nombre, altaForm.apellido)"></strong></p>
+                            <p class="text-amber-600">Contraseña: <strong class="font-mono" x-text="altaForm.dni"></strong></p>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-gold text-white px-6 py-3 rounded-xl font-bold text-sm tracking-elegant">➕ Dar de Alta Profesional</button>
+                </form>
+                <div x-show="altaExitosa" x-cloak class="mt-6 bg-emerald-50 border border-emerald-200 rounded-xl p-6 text-center">
+                    <span class="text-3xl">✅</span>
+                    <h3 class="text-lg font-bold text-emerald-800 mt-2 font-display">¡Profesional dado de alta con éxito!</h3>
+                    <div class="bg-white rounded-lg p-4 border border-emerald-200 text-left text-sm space-y-2 mt-3">
+                        <p><strong>👤 Nombre:</strong> <span x-text="profesionalAltaReciente.nombre + ' ' + profesionalAltaReciente.apellido"></span></p>
+                        <p><strong>📧 Email:</strong> <span x-text="profesionalAltaReciente.email"></span></p>
+                        <p><strong>🔑 Usuario:</strong> <span x-text="profesionalAltaReciente.usuario" class="font-mono font-bold"></span></p>
+                        <p><strong>🔒 Contraseña:</strong> <span x-text="profesionalAltaReciente.dni" class="font-mono font-bold"></span></p>
+                    </div>
+                    <p class="text-[11px] text-emerald-500 mt-2 tracking-elegant">Las credenciales fueron enviadas por email al profesional.</p>
+                    <button @click="altaExitosa = false; resetAltaForm()" class="mt-3 bg-emerald-600 text-white px-4 py-2 rounded-lg text-sm font-bold tracking-elegant">Dar de alta otro profesional</button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-luxury p-6 border border-lindut-stone">
+                <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+                    <div class="flex-1 w-full">
+                        <label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">🔍 Buscar profesional</label>
+                        <input type="text" x-model="busquedaProfesional" class="input-lindut w-full px-4 py-3 rounded-xl text-sm" placeholder="Nombre, apellido, usuario, DNI o especialidad...">
+                    </div>
+                    <div class="flex gap-3 w-full md:w-auto">
+                        <div>
+                            <label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Filtrar por estado</label>
+                            <select x-model="filtroEstado" class="input-lindut px-4 py-3 rounded-xl text-sm bg-white">
+                                <option value="todos">Todos</option>
+                                <option value="activos">Solo Activos</option>
+                                <option value="bajas">Solo Bajas</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Filtrar por especialidad</label>
+                            <select x-model="filtroEspecialidad" class="input-lindut px-4 py-3 rounded-xl text-sm bg-white">
+                                <option value="todas">Todas</option>
+                                <option value="Manicura / Pedicura">Manicura / Pedicura</option>
+                                <option value="Peluquería / Colorimetría">Peluquería / Colorimetría</option>
+                                <option value="Barbería">Barbería</option>
+                                <option value="Maquillaje">Maquillaje</option>
+                                <option value="Estética Facial">Estética Facial</option>
+                                <option value="Depilación">Depilación</option>
+                                <option value="Masajes / Spa">Masajes / Spa</option>
+                                <option value="Pestañas / Cejas">Pestañas / Cejas</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-xs text-lindut-lavender mt-3 tracking-elegant" x-text="'Mostrando ' + profesionalesFiltradosAdmin().length + ' de ' + profesionalesRegistrados.length + ' profesionales'"></p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-luxury p-8 border border-lindut-stone">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-xl font-display font-bold text-lindut-black">📋 Profesionales Registrados</h2>
+                    <span class="text-xs bg-lindut-cream text-lindut-wine px-3 py-1 rounded-full font-bold tracking-elegant" x-text="profesionalesRegistrados.length + ' profesionales'"></span>
+                </div>
+                <div x-show="profesionalesRegistrados.length === 0" class="text-center py-12 text-lindut-lavender">
+                    <span class="text-4xl">📭</span>
+                    <p class="mt-3 text-sm tracking-elegant">No hay profesionales registrados aún.</p>
+                    <p class="text-xs mt-1 tracking-elegant">Usá el formulario de arriba para dar de alta el primero.</p>
+                </div>
+                <div x-show="profesionalesFiltradosAdmin().length > 0" class="space-y-3">
+                    <template x-for="(pro, idx) in profesionalesFiltradosAdmin()" :key="idx">
+                        <div class="bg-lindut-warm-white rounded-xl p-4 border border-lindut-stone hover:border-lindut-gold/40 transition">
+                            <div x-show="profesionalEditando !== pro.usuario" class="flex items-center justify-between flex-wrap gap-3">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-lindut-rose to-lindut-wine rounded-full flex items-center justify-center text-white font-bold text-sm" x-text="pro.nombre.charAt(0) + pro.apellido.charAt(0)"></div>
+                                    <div>
+                                        <p class="font-bold text-lindut-black text-sm" x-text="pro.apellido + ', ' + pro.nombre"></p>
+                                        <p class="text-xs text-lindut-lavender" x-text="pro.especialidad + ' | ' + (pro.experiencia || '0') + ' años'"></p>
+                                        <p class="text-[10px] text-lindut-lavender/60 font-mono mt-0.5" x-text="'Usuario: ' + pro.usuario + ' | DNI: ' + pro.dni"></p>
+                                        <p class="text-[10px] text-lindut-lavender/60" x-text="pro.email + ' | ' + (pro.telefono || 'Sin teléfono')"></p>
+                                        <p class="text-[10px] text-lindut-lavender/60 mt-0.5" x-text="'OPs asignadas: ' + (pro.opsAsignadas ? pro.opsAsignadas.length : 0)"></p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2 flex-wrap justify-end">
+                                    <span class="text-[10px] px-2 py-1 rounded-full font-bold tracking-elegant" :class="pro.activo !== false ? 'bg-emerald-100 text-emerald-700' : 'bg-red-100 text-red-700'" x-text="pro.activo !== false ? 'ACTIVO' : 'BAJA'"></span>
+                                    <button @click="verDetalleProfesional(pro)" class="text-xs bg-purple-100 text-purple-700 hover:bg-purple-200 px-3 py-1.5 rounded-lg font-bold transition tracking-elegant">👁️ Ver Detalle</button>
+                                    <button @click="abrirAsignarOP(pro)" class="text-xs bg-sky-100 text-sky-700 hover:bg-sky-200 px-3 py-1.5 rounded-lg font-bold transition tracking-elegant">📋 Asignar OP</button>
+                                    <button @click="verHistorialOPs(pro)" class="text-xs bg-blue-100 text-blue-700 hover:bg-blue-200 px-3 py-1.5 rounded-lg font-bold transition tracking-elegant">📊 Historial OPs</button>
+                                    <button @click="iniciarEdicion(pro)" class="text-xs bg-amber-100 text-amber-700 hover:bg-amber-200 px-3 py-1.5 rounded-lg font-bold transition tracking-elegant">✏️ Editar</button>
+                                    <button @click="toggleEstadoProfesionalAdmin(pro.usuario)" class="text-xs px-3 py-1.5 rounded-lg font-bold transition tracking-elegant" :class="pro.activo !== false ? 'bg-red-100 text-red-700 hover:bg-red-200' : 'bg-emerald-100 text-emerald-700 hover:bg-emerald-200'" x-text="pro.activo !== false ? 'Dar de Baja' : 'Reactivar'"></button>
+                                    <button @click="eliminarProfesionalAdmin(pro.usuario)" class="text-xs bg-slate-100 text-slate-600 hover:bg-red-100 hover:text-red-600 px-3 py-1.5 rounded-lg font-bold transition tracking-elegant">🗑️ Eliminar</button>
+                                </div>
+                            </div>
+                            <div x-show="profesionalEditando === pro.usuario" class="space-y-4">
+                                <div class="flex items-center gap-2 mb-4">
+                                    <span class="text-lg font-bold text-amber-700">✏️ Editando:</span>
+                                    <span class="text-sm text-lindut-lavender" x-text="pro.apellido + ', ' + pro.nombre"></span>
+                                </div>
+                                <div class="grid md:grid-cols-3 gap-4">
+                                    <div><label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Nombre</label><input type="text" x-model="editForm.nombre" class="input-lindut w-full px-3 py-2 rounded-lg text-sm"></div>
+                                    <div><label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Apellido</label><input type="text" x-model="editForm.apellido" class="input-lindut w-full px-3 py-2 rounded-lg text-sm"></div>
+                                    <div><label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">DNI</label><input type="text" x-model="editForm.dni" class="input-lindut w-full px-3 py-2 rounded-lg text-sm font-mono" readonly></div>
+                                </div>
+                                <div class="grid md:grid-cols-3 gap-4">
+                                    <div><label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Email</label><input type="email" x-model="editForm.email" class="input-lindut w-full px-3 py-2 rounded-lg text-sm font-mono"></div>
+                                    <div><label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Teléfono</label><input type="tel" x-model="editForm.telefono" class="input-lindut w-full px-3 py-2 rounded-lg text-sm"></div>
+                                    <div><label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Especialidad</label>
+                                        <select x-model="editForm.especialidad" class="input-lindut w-full px-3 py-2 rounded-lg text-sm bg-white">
+                                            <option value="Manicura / Pedicura">Manicura / Pedicura</option>
+                                            <option value="Peluquería / Colorimetría">Peluquería / Colorimetría</option>
+                                            <option value="Barbería">Barbería</option>
+                                            <option value="Maquillaje">Maquillaje</option>
+                                            <option value="Estética Facial">Estética Facial</option>
+                                            <option value="Depilación">Depilación</option>
+                                            <option value="Masajes / Spa">Masajes / Spa</option>
+                                            <option value="Pestañas / Cejas">Pestañas / Cejas</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div><label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">CUIT / CUIL</label><input type="text" x-model="editForm.cuit" class="input-lindut w-full px-3 py-2 rounded-lg text-sm font-mono"></div>
+                                    <div><label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Años de Experiencia</label><input type="number" x-model="editForm.experiencia" class="input-lindut w-full px-3 py-2 rounded-lg text-sm"></div>
+                                </div>
+                                <div class="flex gap-3 pt-2">
+                                    <button @click="guardarEdicion()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg text-sm font-bold transition tracking-elegant">💾 Guardar Cambios</button>
+                                    <button @click="profesionalEditando = null" class="bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded-lg text-sm font-bold transition tracking-elegant">❌ Cancelar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+
+            <div x-show="profesionalesDeBaja().length > 0" class="bg-red-50 rounded-2xl shadow-luxury p-8 border border-red-200">
+                <h2 class="text-xl font-display font-bold text-red-800 mb-4">🚫 Profesionales Dados de Baja</h2>
+                <div class="space-y-3">
+                    <template x-for="(pro, idx) in profesionalesDeBaja()" :key="idx">
+                        <div class="flex items-center justify-between bg-white rounded-xl p-4 border border-red-100">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 bg-slate-300 rounded-full flex items-center justify-center text-white font-bold text-sm" x-text="pro.nombre.charAt(0) + pro.apellido.charAt(0)"></div>
+                                <div>
+                                    <p class="font-bold text-slate-500 text-sm line-through" x-text="pro.apellido + ', ' + pro.nombre"></p>
+                                    <p class="text-xs text-slate-400" x-text="pro.especialidad"></p>
+                                    <p class="text-[10px] text-slate-400 font-mono" x-text="'Usuario: ' + pro.usuario"></p>
+                                </div>
+                            </div>
+                            <div class="flex gap-2">
+                                <button @click="reactivarProfesional(pro.usuario)" class="text-xs bg-emerald-100 text-emerald-700 hover:bg-emerald-200 px-3 py-1.5 rounded-lg font-bold transition tracking-elegant">↩️ Reactivar</button>
+                                <button @click="eliminarProfesionalAdmin(pro.usuario)" class="text-xs bg-red-100 text-red-700 hover:bg-red-200 px-3 py-1.5 rounded-lg font-bold transition tracking-elegant">🗑️ Eliminar</button>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: DETALLE PROFESIONAL -->
+    <div x-show="modalDetalleProfesional" x-cloak class="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm" @click.self="modalDetalleProfesional = false">
+        <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-lg w-full mx-4 border border-lindut-stone max-h-[85vh] overflow-y-auto">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-lg font-display font-bold text-lindut-black">👁️ Detalle Completo del Profesional</h3>
+                <button @click="modalDetalleProfesional = false" class="text-lindut-lavender hover:text-lindut-black text-xl">✕</button>
+            </div>
+            <div x-show="profesionalDetalle" class="space-y-4">
+                <div class="flex items-center gap-4 pb-4 border-b border-lindut-stone">
+                    <div class="w-16 h-16 bg-gradient-to-br from-lindut-rose to-lindut-wine rounded-full flex items-center justify-center text-white font-bold text-xl" x-text="profesionalDetalle?.nombre?.charAt(0) + profesionalDetalle?.apellido?.charAt(0)"></div>
+                    <div>
+                        <p class="text-lg font-bold text-lindut-black" x-text="(profesionalDetalle?.apellido || '') + ', ' + (profesionalDetalle?.nombre || '')"></p>
+                        <p class="text-sm text-lindut-lavender" x-text="profesionalDetalle?.especialidad"></p>
+                        <span class="text-[10px] px-2 py-0.5 rounded-full font-bold mt-1 inline-block tracking-elegant" :class="profesionalDetalle?.activo !== false ? 'bg-emerald-100 text-emerald-700' : 'bg-red-100 text-red-700'" x-text="profesionalDetalle?.activo !== false ? 'ACTIVO' : 'BAJA'"></span>
+                    </div>
+                </div>
+                <div class="bg-lindut-warm-white rounded-xl p-4 space-y-2">
+                    <p class="text-xs font-bold text-lindut-wine uppercase tracking-wide tracking-luxury">📇 Datos de Contacto</p>
+                    <p class="text-sm"><strong>Email:</strong> <span x-text="profesionalDetalle?.email"></span></p>
+                    <p class="text-sm"><strong>Teléfono:</strong> <span x-text="profesionalDetalle?.telefono || 'No registrado'"></span></p>
+                    <p class="text-sm"><strong>Usuario:</strong> <span x-text="profesionalDetalle?.usuario" class="font-mono"></span></p>
+                    <p class="text-sm"><strong>Contraseña:</strong> <span x-text="profesionalDetalle?.dni" class="font-mono"></span> (DNI sin puntos)</p>
+                </div>
+                <div class="bg-lindut-warm-white rounded-xl p-4 space-y-2">
+                    <p class="text-xs font-bold text-lindut-wine uppercase tracking-wide tracking-luxury">💄 Datos Profesionales</p>
+                    <p class="text-sm"><strong>Especialidad:</strong> <span x-text="profesionalDetalle?.especialidad"></span></p>
+                    <p class="text-sm"><strong>Experiencia:</strong> <span x-text="(profesionalDetalle?.experiencia || '0') + ' años'"></span></p>
+                    <p class="text-sm"><strong>CUIT/CUIL:</strong> <span x-text="profesionalDetalle?.cuit || 'No registrado'"></span></p>
+                    <p class="text-sm"><strong>DNI:</strong> <span x-text="profesionalDetalle?.dni"></span></p>
+                </div>
+                <div class="bg-amber-50 rounded-xl p-4 space-y-2">
+                    <p class="text-xs font-bold text-amber-700 uppercase tracking-wide tracking-luxury">📊 Estadísticas</p>
+                    <p class="text-sm"><strong>OPs asignadas:</strong> <span x-text="profesionalDetalle?.opsAsignadas?.length || 0"></span></p>
+                    <p class="text-sm"><strong>OPs completadas:</strong> <span x-text="(profesionalDetalle?.opsAsignadas || []).filter(op => op.estado === 'completada').length"></span></p>
+                    <p class="text-sm"><strong>Fecha de alta:</strong> <span x-text="profesionalDetalle?.fechaAlta || 'No registrada'"></span></p>
+                </div>
+            </div>
+            <button @click="modalDetalleProfesional = false" class="w-full mt-6 bg-slate-100 hover:bg-slate-200 text-slate-700 py-3 rounded-xl font-bold text-sm tracking-elegant">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- MODAL: ASIGNAR OP -->
+    <div x-show="modalAsignarOP" x-cloak class="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm" @click.self="modalAsignarOP = false">
+        <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-lg w-full mx-4 border border-lindut-stone max-h-[85vh] overflow-y-auto">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-lg font-display font-bold text-lindut-black">📋 Asignar OP Manualmente</h3>
+                <button @click="modalAsignarOP = false" class="text-lindut-lavender hover:text-lindut-black text-xl">✕</button>
+            </div>
+            <div x-show="profesionalAsignarOP" class="mb-4 bg-lindut-warm-white rounded-lg p-3">
+                <p class="text-xs text-lindut-lavender tracking-elegant">Profesional seleccionado:</p>
+                <p class="text-sm font-bold text-lindut-black" x-text="(profesionalAsignarOP?.apellido || '') + ', ' + (profesionalAsignarOP?.nombre || '')"></p>
+                <p class="text-xs text-lindut-lavender/60" x-text="profesionalAsignarOP?.especialidad + ' | Usuario: ' + profesionalAsignarOP?.usuario"></p>
+            </div>
+            <form @submit.prevent="guardarOPManual()" class="space-y-4">
+                <div><label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Número de OP *</label><input type="text" x-model="opManualForm.numero" required class="input-lindut w-full px-4 py-3 rounded-xl text-sm font-mono" placeholder="Ej: LND-20260721123456"></div>
+                <div><label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Categoría *</label>
+                    <select x-model="opManualForm.categoria" required class="input-lindut w-full px-4 py-3 rounded-xl text-sm bg-white">
+                        <option value="Manicura 💅">Manicura 💅</option>
+                        <option value="Peluquería ✂️">Peluquería ✂️</option>
+                        <option value="Barbería 🪒">Barbería 🪒</option>
+                        <option value="Maquillaje 💄">Maquillaje 💄</option>
+                        <option value="Estética Facial 🧖‍♀️">Estética Facial 🧖‍♀️</option>
+                        <option value="Depilación 🧴">Depilación 🧴</option>
+                        <option value="Masajes / Spa 🌿">Masajes / Spa 🌿</option>
+                        <option value="Pestañas / Cejas 👁️">Pestañas / Cejas 👁️</option>
+                    </select>
+                </div>
+                <div><label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Zona *</label><input type="text" x-model="opManualForm.zona" required class="input-lindut w-full px-4 py-3 rounded-xl text-sm" placeholder="Ej: Palermo, CABA"></div>
+                <div><label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Servicio / Descripción *</label><textarea x-model="opManualForm.diagnostico" required rows="3" class="input-lindut w-full px-4 py-3 rounded-xl text-sm" placeholder="Describí el servicio solicitado..."></textarea></div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div><label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Monto del servicio ($ARS)</label><input type="number" x-model="opManualForm.monto" min="5000" class="input-lindut w-full px-4 py-3 rounded-xl text-sm font-mono" placeholder="Ej: 15000"></div>
+                    <div><label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Estado</label>
+                        <select x-model="opManualForm.estado" class="input-lindut w-full px-4 py-3 rounded-xl text-sm bg-white">
+                            <option value="pendiente">Pendiente</option>
+                            <option value="en_proceso">En Proceso</option>
+                            <option value="completada">Completada</option>
+                            <option value="cancelada">Cancelada</option>
+                        </select>
+                    </div>
+                </div>
+                <div><label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Datos del Cliente</label>
+                    <input type="text" x-model="opManualForm.clienteNombre" class="input-lindut w-full px-4 py-3 rounded-xl text-sm mb-2" placeholder="Nombre del cliente">
+                    <input type="tel" x-model="opManualForm.clienteTelefono" class="input-lindut w-full px-4 py-3 rounded-xl text-sm mb-2" placeholder="Teléfono del cliente">
+                    <input type="email" x-model="opManualForm.clienteEmail" class="input-lindut w-full px-4 py-3 rounded-xl text-sm" placeholder="Email del cliente">
+                </div>
+                <div class="bg-amber-50 border border-amber-200 rounded-xl p-3">
+                    <p class="text-xs text-amber-700 tracking-elegant">Canon Lindüt (1%): <strong x-text="opManualForm.monto ? '$' + Math.round(opManualForm.monto * 0.01).toLocaleString('es-AR') + ' ARS' : '---'"></strong></p>
+                </div>
+                <div class="flex gap-3 pt-2">
+                    <button type="submit" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-xl font-bold text-sm transition tracking-elegant">✅ Asignar OP</button>
+                    <button type="button" @click="modalAsignarOP = false" class="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-700 py-3 rounded-xl font-bold text-sm transition tracking-elegant">❌ Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL: HISTORIAL OPs -->
+    <div x-show="modalHistorialOPs" x-cloak class="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm" @click.self="modalHistorialOPs = false">
+        <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-lg w-full mx-4 border border-lindut-stone max-h-[80vh] overflow-y-auto">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-lg font-display font-bold text-lindut-black">📋 Historial de OPs — <span x-text="profesionalHistorial?.apellido + ', ' + profesionalHistorial?.nombre"></span></h3>
+                <button @click="modalHistorialOPs = false" class="text-lindut-lavender hover:text-lindut-black text-xl">✕</button>
+            </div>
+            <div x-show="!profesionalHistorial?.opsAsignadas || profesionalHistorial.opsAsignadas.length === 0" class="text-center py-8 text-lindut-lavender">
+                <span class="text-3xl">📭</span>
+                <p class="mt-2 text-sm">Este profesional no tiene OPs asignadas.</p>
+            </div>
+            <div x-show="profesionalHistorial?.opsAsignadas && profesionalHistorial.opsAsignadas.length > 0" class="space-y-3">
+                <template x-for="(op, idx) in profesionalHistorial.opsAsignadas" :key="idx">
+                    <div class="bg-lindut-warm-white rounded-lg p-4 border border-lindut-stone">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="font-mono font-bold text-sm text-lindut-black" x-text="op.numero"></p>
+                            <span class="text-[10px] px-2 py-0.5 rounded-full font-bold" :class="op.estado === 'completada' ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700'" x-text="op.estado || 'PENDIENTE'"></span>
+                        </div>
+                        <p class="text-xs text-lindut-lavender" x-text="op.categoria"></p>
+                        <p class="text-xs text-lindut-lavender" x-text="op.zona"></p>
+                        <p class="text-[10px] text-lindut-lavender/60 mt-1" x-text="'Monto: $' + (op.monto || '---') + ' | Canon: $' + (op.canon || '---') + ' ARS'"></p>
+                    </div>
+                </template>
+            </div>
+            <button @click="modalHistorialOPs = false" class="w-full mt-6 bg-slate-100 hover:bg-slate-200 text-slate-700 py-3 rounded-xl font-bold text-sm tracking-elegant">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- VIEW: HOME -->
+    <div x-show="view === 'home'" class="fade-in">
+        <section class="relative overflow-hidden bg-gradient-to-br from-lindut-black via-lindut-dark to-lindut-wine text-white hero-pattern texture-overlay">
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A96E' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-36">
+                <div class="text-center max-w-4xl mx-auto">
+                    <div class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 border border-white/20 mb-8 backdrop-blur-sm">
+                        <span class="w-2 h-2 rounded-full bg-lindut-gold animate-pulse"></span>
+                        <span class="text-sm font-medium text-lindut-cream/90 tracking-wide tracking-elegant">Belleza Profesional · Argentina</span>
+                    </div>
+                    <h1 class="text-5xl sm:text-6xl lg:text-8xl font-display font-light mb-4 leading-[0.95]">
+                        <span class="text-gold-gradient">Lindüt</span>
+                    </h1>
+                    <p class="font-script text-3xl sm:text-4xl text-lindut-blush mb-6">Belleza que llega a vos</p>
+                    <p class="text-lg sm:text-xl text-lindut-cream/70 max-w-2xl mx-auto mb-12 leading-relaxed font-light heritage-serif">
+                        Conectamos clientes con profesionales de estética independientes. Manicuras, peluqueras, barberos, maquilladoras. No empleamos, no fijamos precios. Vos elegís a quién contratar.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button @click="view = 'cliente'" class="btn-gold text-white px-10 py-4 rounded-xl font-semibold text-lg tracking-wide tracking-elegant">Quiero un servicio</button>
+                        <button @click="view = 'profesional'" class="btn-blush text-white px-10 py-4 rounded-xl font-semibold text-lg tracking-wide tracking-elegant">Soy profesional</button>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-lindut-warm-white to-transparent"></div>
+        </section>
+
+        <section class="py-20 bg-lindut-warm-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <p class="text-lindut-gold text-sm tracking-[0.3em] uppercase font-bold mb-3 tracking-luxury">Cómo funciona</p>
+                    <h2 class="text-3xl sm:text-4xl font-display font-bold text-lindut-black mb-4">Tres pasos, cero complicaciones</h2>
+                    <div class="separator-gold max-w-xs mx-auto mb-4"></div>
+                    <p class="text-lindut-lavender max-w-xl mx-auto heritage-serif">Simple, glamoroso y sin intermediarios abusivos.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-lindut-stone card-hover text-center relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-lindut-gold/5 to-transparent rounded-bl-full"></div>
+                        <div class="w-16 h-16 bg-gradient-to-br from-lindut-gold/20 to-lindut-gold/5 rounded-2xl flex items-center justify-center mx-auto mb-6"><span class="text-3xl font-display font-black text-lindut-gold">1</span></div>
+                        <h3 class="text-xl font-display font-bold text-lindut-black mb-3">Contanos qué necesitás</h3>
+                        <p class="text-lindut-lavender heritage-serif">Nuestra asistente te guía con preguntas simples. No hace falta que sepas los términos técnicos.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-lindut-stone card-hover text-center relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-lindut-blush/5 to-transparent rounded-bl-full"></div>
+                        <div class="w-16 h-16 bg-gradient-to-br from-lindut-blush/20 to-lindut-blush/5 rounded-2xl flex items-center justify-center mx-auto mb-6"><span class="text-3xl font-display font-black text-lindut-blush">2</span></div>
+                        <h3 class="text-xl font-display font-bold text-lindut-black mb-3">Elegí tu profesional</h3>
+                        <p class="text-lindut-lavender heritage-serif">Vemos profesionales disponibles en tu zona. Vos elegís a quién contactar basado en su perfil.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-8 shadow-sm border border-lindut-stone card-hover text-center relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-emerald-500/5 to-transparent rounded-bl-full"></div>
+                        <div class="w-16 h-16 bg-gradient-to-br from-emerald-100 to-emerald-50 rounded-2xl flex items-center justify-center mx-auto mb-6"><span class="text-3xl font-display font-black text-emerald-600">3</span></div>
+                        <h3 class="text-xl font-display font-bold text-lindut-black mb-3">Acordás directo</h3>
+                        <p class="text-lindut-lavender heritage-serif">El profesional te contacta, presupuestan y acuerdan. Nosotros no nos metemos en el precio final.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <p class="text-lindut-gold text-sm tracking-[0.3em] uppercase font-bold mb-3 tracking-luxury">Servicios</p>
+                    <h2 class="text-3xl sm:text-4xl font-display font-bold text-lindut-black mb-4">¿Qué estás buscando?</h2>
+                    <div class="separator-gold max-w-xs mx-auto mb-4"></div>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="bg-lindut-warm-white rounded-xl p-6 text-center border border-lindut-stone hover:border-lindut-gold/40 transition cursor-pointer card-hover" @click="view = 'cliente'">
+                        <span class="text-4xl mb-3 block">💅</span>
+                        <h4 class="font-display font-bold text-lindut-black text-sm">Manicura / Pedicura</h4>
+                    </div>
+                    <div class="bg-lindut-warm-white rounded-xl p-6 text-center border border-lindut-stone hover:border-lindut-gold/40 transition cursor-pointer card-hover" @click="view = 'cliente'">
+                        <span class="text-4xl mb-3 block">✂️</span>
+                        <h4 class="font-display font-bold text-lindut-black text-sm">Peluquería</h4>
+                    </div>
+                    <div class="bg-lindut-warm-white rounded-xl p-6 text-center border border-lindut-stone hover:border-lindut-gold/40 transition cursor-pointer card-hover" @click="view = 'cliente'">
+                        <span class="text-4xl mb-3 block">🪒</span>
+                        <h4 class="font-display font-bold text-lindut-black text-sm">Barbería</h4>
+                    </div>
+                    <div class="bg-lindut-warm-white rounded-xl p-6 text-center border border-lindut-stone hover:border-lindut-gold/40 transition cursor-pointer card-hover" @click="view = 'cliente'">
+                        <span class="text-4xl mb-3 block">💄</span>
+                        <h4 class="font-display font-bold text-lindut-black text-sm">Maquillaje</h4>
+                    </div>
+                    <div class="bg-lindut-warm-white rounded-xl p-6 text-center border border-lindut-stone hover:border-lindut-gold/40 transition cursor-pointer card-hover" @click="view = 'cliente'">
+                        <span class="text-4xl mb-3 block">🧖‍♀️</span>
+                        <h4 class="font-display font-bold text-lindut-black text-sm">Estética Facial</h4>
+                    </div>
+                    <div class="bg-lindut-warm-white rounded-xl p-6 text-center border border-lindut-stone hover:border-lindut-gold/40 transition cursor-pointer card-hover" @click="view = 'cliente'">
+                        <span class="text-4xl mb-3 block">🧴</span>
+                        <h4 class="font-display font-bold text-lindut-black text-sm">Depilación</h4>
+                    </div>
+                    <div class="bg-lindut-warm-white rounded-xl p-6 text-center border border-lindut-stone hover:border-lindut-gold/40 transition cursor-pointer card-hover" @click="view = 'cliente'">
+                        <span class="text-4xl mb-3 block">🌿</span>
+                        <h4 class="font-display font-bold text-lindut-black text-sm">Masajes / Spa</h4>
+                    </div>
+                    <div class="bg-lindut-warm-white rounded-xl p-6 text-center border border-lindut-stone hover:border-lindut-gold/40 transition cursor-pointer card-hover" @click="view = 'cliente'">
+                        <span class="text-4xl mb-3 block">👁️</span>
+                        <h4 class="font-display font-bold text-lindut-black text-sm">Pestañas / Cejas</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- VIEW: CLIENTE -->
+    <div x-show="view === 'cliente'" x-cloak class="min-h-screen bg-lindut-warm-white pb-20">
+        <div class="bg-white border-b border-lindut-stone">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                <button @click="view = 'home'" class="text-sm text-lindut-lavender hover:text-lindut-wine flex items-center gap-1 mb-4 cursor-pointer tracking-elegant">← Volver al inicio</button>
+                <h1 class="text-2xl sm:text-3xl font-display font-bold text-lindut-black">¿Qué servicio necesitás?</h1>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div x-show="clienteStep === 1">
+                <h2 class="text-xl font-display font-bold text-lindut-black mb-6">Seleccioná una categoría</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <template x-for="cat in categorias" :key="cat.id">
+                        <button @click="selectCategoria(cat)" class="card-hover bg-white p-6 rounded-xl text-left shadow-sm border border-lindut-stone">
+                            <div class="text-4xl mb-4" x-text="cat.icon"></div>
+                            <h3 class="text-lg font-display font-bold text-lindut-black mb-2" x-text="cat.nombre"></h3>
+                            <p class="text-lindut-lavender text-sm heritage-serif" x-text="cat.descripcion"></p>
+                        </button>
+                    </template>
+                </div>
+            </div>
+            <div x-show="clienteStep === 2" class="max-w-2xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-luxury p-8 border border-lindut-stone">
+                    <h2 class="text-2xl font-display font-bold text-lindut-black mb-6">Tus datos de contacto</h2>
+                    <form @submit.prevent="iniciarChat()" class="space-y-5">
+                        <div><label class="block text-sm font-medium text-lindut-wine mb-1">Nombre completo *</label><input type="text" x-model="clienteForm.nombre" required class="input-lindut w-full px-4 py-3 rounded-xl text-sm" placeholder="Ej: Ana García"></div>
+                        <div><label class="block text-sm font-medium text-lindut-wine mb-1">Teléfono celular *</label><input type="tel" x-model="clienteForm.telefono" required class="input-lindut w-full px-4 py-3 rounded-xl text-sm" placeholder="Ej: +54 9 11 1234-5678"></div>
+                        <div><label class="block text-sm font-medium text-lindut-wine mb-1">Email *</label><input type="email" x-model="clienteForm.email" required class="input-lindut w-full px-4 py-3 rounded-xl text-sm" placeholder="Ej: ana@email.com"></div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div><label class="block text-sm font-medium text-lindut-wine mb-1">Calle *</label><input type="text" x-model="clienteForm.calle" required class="input-lindut w-full px-4 py-3 rounded-xl text-sm" placeholder="Ej: Av. Santa Fe"></div>
+                            <div><label class="block text-sm font-medium text-lindut-wine mb-1">Altura *</label><input type="text" x-model="clienteForm.altura" required class="input-lindut w-full px-4 py-3 rounded-xl text-sm" placeholder="Ej: 1234"></div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div><label class="block text-sm font-medium text-lindut-wine mb-1">Localidad/Barrio *</label><input type="text" x-model="clienteForm.localidad" required class="input-lindut w-full px-4 py-3 rounded-xl text-sm" placeholder="Ej: Palermo"></div>
+                            <div><label class="block text-sm font-medium text-lindut-wine mb-1">Provincia *</label><input type="text" x-model="clienteForm.provincia" required class="input-lindut w-full px-4 py-3 rounded-xl text-sm" placeholder="Ej: CABA"></div>
+                        </div>
+                        <button type="submit" class="btn-gold w-full text-white py-4 rounded-xl font-bold text-lg tracking-elegant">Continuar con Luna →</button>
+                    </form>
+                </div>
+            </div>
+            <div x-show="clienteStep === 3" class="max-w-2xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-luxury overflow-hidden border border-lindut-stone">
+                    <div class="bg-gradient-to-r from-lindut-wine to-lindut-rose p-5 text-white">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-2xl">🌙</div>
+                            <div><h2 class="text-lg font-display font-bold">Luna — Asistente de Belleza</h2><p class="text-xs text-white/80 tracking-elegant">Tu consultora de estética personal</p></div>
+                        </div>
+                    </div>
+                    <div class="h-[350px] overflow-y-auto p-4 space-y-4 bg-lindut-warm-white elegant-scroll" id="chat-container">
+                        <template x-for="(msg, index) in chatMessages" :key="index">
+                            <div :class="msg.from === 'luna' ? 'flex items-start gap-3' : 'flex items-start gap-3 flex-row-reverse'">
+                                <div class="w-8 h-8 rounded-full flex items-center justify-center bg-white text-sm" x-text="msg.from === 'luna' ? '🌙' : '🙂'"></div>
+                                <div :class="msg.from === 'luna' ? 'bg-white rounded-2xl rounded-tl-none p-4 max-w-[80%] text-sm shadow-sm text-lindut-black' : 'bg-lindut-wine text-white rounded-2xl rounded-tr-none p-4 max-w-[80%] text-sm shadow-sm'"><p x-html="msg.text"></p></div>
+                            </div>
+                        </template>
+                    </div>
+                    <div x-show="!diagnosticoComplete" class="p-4 border-t bg-white space-y-3">
+                        <div class="bg-amber-50 border border-amber-200 rounded-lg p-3">
+                            <p class="text-[11px] text-amber-700 font-bold tracking-elegant">📋 Resumen de tu solicitud:</p>
+                            <p class="text-[11px] text-amber-600">Categoría: <strong x-text="categoriaSelected?.nombre"></strong> | Zona: <strong x-text="clienteForm.localidad"></strong></p>
+                        </div>
+                        <div class="flex gap-2">
+                            <textarea x-model="lunaTextInput" rows="2" class="input-lindut flex-1 px-4 py-2 rounded-xl text-sm bg-lindut-warm-white text-lindut-black" placeholder="Describí qué necesitás..."></textarea>
+                            <button @click="enviarTextoLuna()" class="btn-wine text-white px-4 rounded-xl font-bold">Enviar</button>
+                        </div>
+                        <div>
+                            <label class="block text-[11px] text-lindut-lavender mb-1">📎 Adjuntar fotos de referencia:</label>
+                            <input type="file" id="archivos-diagnostico" multiple accept="image/jpeg,image/png,image/jpg" @change="previsualizarArchivosDiagnostico($event)" class="w-full text-xs text-lindut-lavender file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-lindut-cream file:text-lindut-wine hover:file:bg-lindut-cream/80">
+                            <p class="text-[10px] text-lindut-lavender/60 mt-1">Formatos: JPG, PNG. Máx: 10MB por archivo.</p>
+                            <div id="preview-diagnostico" class="flex flex-wrap gap-2 mt-2"></div>
+                        </div>
+                    </div>
+                    <div x-show="diagnosticoComplete" class="p-4 bg-emerald-50 border-t flex flex-col items-center">
+                        <p class="text-xs text-emerald-800 font-bold mb-3">✓ Consulta procesada con éxito por Luna.</p>
+                        <button @click="clienteStep = 4" class="btn-wine text-white px-6 py-2.5 rounded-xl font-bold text-sm tracking-elegant">Ver Profesionales Disponibles en la Zona</button>
+                    </div>
+                </div>
+            </div>
+            <div x-show="clienteStep === 4">
+                <button @click="volverACategorias()" class="mb-4 text-sm text-lindut-lavender hover:text-lindut-wine flex items-center gap-1 cursor-pointer tracking-elegant">← Volver a Categorías</button>
+                <h2 class="text-xl font-display font-bold text-lindut-black mb-2">Profesionales recomendados para vos</h2>
+                <div x-show="!tieneProfesionalesEnZona()" class="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-4">
+                    <p class="text-[11px] text-amber-700">⚠️ No encontramos profesionales de <strong x-text="categoriaSelected?.nombre"></strong> en <strong x-text="clienteForm.localidad"></strong>. Te mostramos los más cercanos disponibles.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <template x-for="pro in profesionalesFiltrados" :key="pro.id">
+                        <div class="bg-white rounded-xl shadow-sm border border-lindut-stone p-6 card-hover">
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="font-display font-bold text-lindut-black text-lg" x-text="pro.nombre"></h3>
+                                <span x-show="pro.zona.toLowerCase().includes((clienteForm.localidad || '').toLowerCase())" class="text-[10px] bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full font-bold">EN TU ZONA</span>
+                                <span x-show="!pro.zona.toLowerCase().includes((clienteForm.localidad || '').toLowerCase())" class="text-[10px] bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full font-bold">ZONA CERCANA</span>
+                            </div>
+                            <p class="text-sm text-lindut-rose font-semibold" x-text="pro.especialidad"></p>
+                            <p class="text-xs text-lindut-lavender mt-2" x-text="'Zona: ' + pro.zona"></p>
+                            <p class="text-xs text-lindut-lavender" x-text="'Experiencia: ' + pro.experiencia + ' años'"></p>
+                            <p class="text-xs text-lindut-gold font-bold mt-1" x-text="'Match: ' + pro.match + '%'"></p>
+                            <div class="mt-4 pt-3 border-t border-lindut-stone">
+                                <button @click="selectProfesional(pro)" class="w-full btn-wine text-white py-2 rounded-lg text-sm font-bold tracking-elegant">Solicitar contacto</button>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+            <div x-show="clienteStep === 5" class="max-w-2xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-luxury p-8 border border-lindut-stone">
+                    <div class="bg-lindut-black text-white rounded-xl p-4 mb-6 border border-lindut-wine/30">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-[10px] text-lindut-lavender uppercase tracking-wider font-bold tracking-luxury">Orden de Pedido Generada</p>
+                                <p class="text-xl font-black font-mono text-lindut-gold" x-text="opNumero"></p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-[10px] text-lindut-lavender">Profesional asignado</p>
+                                <p class="text-sm font-bold" x-text="profesionalSelected?.nombre"></p>
+                            </div>
+                        </div>
+                        <div class="mt-3 pt-3 border-t border-lindut-wine/30 grid grid-cols-2 gap-2 text-[11px]">
+                            <p class="text-lindut-cream/80">📋 <span x-text="diagnostico.categoria"></span></p>
+                            <p class="text-lindut-cream/80">📍 <span x-text="diagnostico.zona"></span></p>
+                        </div>
+                    </div>
+                    <h2 class="text-xl font-display font-bold text-lindut-black mb-4">Confirmación de Solicitud</h2>
+                    <div class="space-y-5">
+                        <div class="bg-amber-50 border border-amber-200 rounded-xl p-4">
+                            <h4 class="text-xs font-bold text-amber-700 mb-2 tracking-elegant">📋 Resumen de tu solicitud:</h4>
+                            <ul class="text-[11px] text-amber-600 space-y-1">
+                                <li>• <strong>OP:</strong> <span x-text="opNumero"></span></li>
+                                <li>• <strong>Categoría:</strong> <span x-text="diagnostico.categoria"></span></li>
+                                <li>• <strong>Zona:</strong> <span x-text="clienteForm.direccion"></span></li>
+                                <li>• <strong>Teléfono:</strong> <span x-text="clienteForm.telefono"></span></li>
+                                <li>• <strong>Email:</strong> <span x-text="clienteForm.email"></span></li>
+                                <li>• <strong>Consulta:</strong> <span x-text="diagnostico.sintoma"></span></li>
+                                <li>• <strong>Profesional:</strong> <span x-text="profesionalSelected?.nombre"></span></li>
+                            </ul>
+                        </div>
+                        <div class="bg-lindut-wine/5 border border-lindut-wine/20 rounded-xl p-4">
+                            <p class="text-[11px] text-lindut-wine leading-relaxed heritage-serif">
+                                <strong>¿Qué sigue?</strong><br>
+                                1. El profesional recibirá tu solicitud y definirá el monto del servicio.<br>
+                                2. Una vez que el profesional pague el canon del 1%, recibirás sus datos de contacto para que puedas coordinar fecha, hora y detalles directamente con él/ella.<br>
+                                3. El monto mínimo de cualquier OP es de <strong>$5.000 ARS</strong>.
+                            </p>
+                        </div>
+                        <div x-show="!solicitudEnviada" class="space-y-5">
+                            <form @submit.prevent="enviarSolicitudCliente()" class="space-y-5">
+                                <div><label class="block text-xs font-bold text-lindut-lavender mb-1">Cargá fotos de referencia (Opcional)</label><input type="file" id="fotos-cliente" multiple accept="image/*" class="w-full text-xs text-lindut-lavender file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-lindut-cream file:text-lindut-wine hover:file:bg-lindut-cream/80"></div>
+                                <div class="bg-lindut-warm-white p-3.5 border border-lindut-stone rounded-xl space-y-3">
+                                    <label class="flex items-start gap-3 cursor-pointer select-none">
+                                        <input type="checkbox" x-model="clienteForm.aceptaLey" required class="mt-1 w-4 h-4 text-lindut-wine rounded accent-lindut-wine">
+                                        <span class="text-[11px] text-lindut-lavender leading-normal">Acepto los términos de resguardo confidencial de la Ley 25.326 y entiendo que la relación contractual de locación es exclusiva con el profesional independiente elegido.</span>
+                                    </label>
+                                    <label class="flex items-start gap-3 cursor-pointer select-none">
+                                        <input type="checkbox" x-model="clienteForm.mayorEdad" required class="mt-1 w-4 h-4 text-lindut-wine rounded accent-lindut-wine">
+                                        <span class="text-[11px] text-lindut-lavender leading-normal">Declaro ser mayor de 18 (dieciocho) años, con plena capacidad civil para consentir actos jurídicos y contratar servicios de locación, conforme el art. 30 y 31 del Código Civil y Comercial de la Nación.</span>
+                                    </label>
+                                </div>
+                                <button type="submit" :disabled="!clienteForm.aceptaLey || !clienteForm.mayorEdad" class="w-full btn-gold text-white py-4 rounded-xl font-bold text-sm uppercase tracking-wider shadow-md disabled:opacity-40 disabled:cursor-not-allowed tracking-luxury">Confirmar y Enviar Solicitud</button>
+                            </form>
+                        </div>
+                        <div x-show="solicitudEnviada" x-cloak class="bg-emerald-50 border border-emerald-200 rounded-xl p-8 text-center space-y-4">
+                            <div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto">
+                                <span class="text-3xl">✅</span>
+                            </div>
+                            <h3 class="text-xl font-display font-bold text-emerald-800">¡Solicitud Enviada con Éxito!</h3>
+                            <div class="bg-white rounded-lg p-4 border border-emerald-200 text-left text-sm space-y-2">
+                                <p><strong>📋 OP:</strong> <span x-text="opNumero"></span></p>
+                                <p><strong>👤 Profesional asignado:</strong> <span x-text="profesionalSelected?.nombre"></span></p>
+                                <p><strong>📱 Tu teléfono:</strong> <span x-text="clienteForm.telefono"></span></p>
+                                <p><strong>📧 Tu email:</strong> <span x-text="clienteForm.email"></span></p>
+                            </div>
+                            <p class="text-sm text-emerald-700 font-medium">El profesional se pondrá en contacto con vos al teléfono <strong x-text="clienteForm.telefono"></strong> para coordinar fecha, hora y detalles del servicio.</p>
+                            <p class="text-[11px] text-emerald-500">También recibirás una confirmación por email. Si no recibís respuesta en 24 hs hábiles, escribinos a <strong>lindutargentina@gmail.com</strong></p>
+                            <button @click="solicitudEnviada = false; resetCliente(); view = 'home'" class="mt-2 btn-wine text-white px-8 py-3 rounded-xl font-bold text-sm tracking-elegant">Volver al Inicio</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIEW: PROFESIONAL -->
+    <div x-show="view === 'profesional'" x-cloak class="min-h-screen bg-lindut-warm-white pb-20">
+        <div class="bg-white border-b border-lindut-stone">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                <button @click="view = 'home'" class="text-sm text-lindut-lavender hover:text-lindut-wine flex items-center gap-1 cursor-pointer tracking-elegant">← Volver al inicio</button>
+                <h1 class="text-2xl sm:text-3xl font-display font-bold text-lindut-black mt-3">Portal de Registro Profesional</h1>
+            </div>
+        </div>
+        <div class="max-w-2xl mx-auto px-4 py-8">
+            <div class="bg-white rounded-2xl shadow-luxury p-8 border border-lindut-stone">
+                <form @submit.prevent="registrarProfesionalYEnviarEmail()" class="space-y-6" x-show="!profesionalEnviado">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div><label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Nombre *</label><input type="text" x-model="profesionalForm.nombre" required class="input-lindut w-full px-4 py-2.5 rounded-xl text-xs text-lindut-black bg-lindut-warm-white" placeholder="Ej: María"></div>
+                        <div><label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Apellido *</label><input type="text" x-model="profesionalForm.apellido" required class="input-lindut w-full px-4 py-2.5 rounded-xl text-xs text-lindut-black bg-lindut-warm-white" placeholder="Ej: López"></div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div><label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">CUIT / CUIL (Sin Guiones) *</label><input type="text" x-model="profesionalForm.cuit" required pattern="[0-9]{11}" class="input-lindut w-full px-4 py-2.5 rounded-xl text-xs text-lindut-black font-mono bg-lindut-warm-white"></div>
+                        <div><label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">DNI (Sin puntos) *</label><input type="text" x-model="profesionalForm.dni" required pattern="[0-9]{7,8}" class="input-lindut w-full px-4 py-2.5 rounded-xl text-xs text-lindut-black font-mono bg-lindut-warm-white" placeholder="Ej: 34567890"></div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Email Comercial *</label>
+                            <input type="email" x-model="profesionalForm.email" required class="input-lindut w-full px-4 py-2.5 rounded-xl text-xs text-lindut-black font-mono bg-lindut-warm-white">
+                            <p class="text-[10px] text-amber-600 mt-1 font-medium">⚠️ Este email es donde recibirás las órdenes de trabajo. Asegurate de que esté actualizado.</p>
+                        </div>
+                        <div><label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Teléfono Móvil *</label><input type="tel" x-model="profesionalForm.telefono" required class="input-lindut w-full px-4 py-2.5 rounded-xl text-xs text-lindut-black bg-lindut-warm-white"></div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div><label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Especialidad Principal *</label><select x-model="profesionalForm.especialidad" required class="input-lindut w-full px-4 py-2.5 rounded-xl text-xs text-lindut-black bg-lindut-warm-white"><option value="Manicura / Pedicura">Manicura / Pedicura</option><option value="Peluquería / Colorimetría">Peluquería / Colorimetría</option><option value="Barbería">Barbería</option><option value="Maquillaje">Maquillaje</option><option value="Estética Facial">Estética Facial</option><option value="Depilación">Depilación</option><option value="Masajes / Spa">Masajes / Spa</option><option value="Pestañas / Cejas">Pestañas / Cejas</option></select></div>
+                        <div><label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Años de Experiencia *</label><input type="number" x-model="profesionalForm.experiencia" required class="input-lindut w-full px-4 py-2.5 rounded-xl text-xs text-lindut-black bg-lindut-warm-white"></div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Modalidad de Atención *</label>
+                            <select x-model="profesionalForm.modalidad" required class="input-lindut w-full px-4 py-2.5 rounded-xl text-xs text-lindut-black bg-lindut-warm-white">
+                                <option value="domicilio">Solo a Domicilio</option>
+                                <option value="local">Solo en Local</option>
+                                <option value="ambos">Ambas</option>
+                            </select>
+                        </div>
+                        <div><label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Dirección del Local (si aplica)</label><input type="text" x-model="profesionalForm.direccionLocal" class="input-lindut w-full px-4 py-2.5 rounded-xl text-xs text-lindut-black bg-lindut-warm-white" placeholder="Ej: Av. Córdoba 1234, CABA"></div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div><label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Días de Atención</label><input type="text" x-model="profesionalForm.diasAtencion" class="input-lindut w-full px-4 py-2.5 rounded-xl text-xs text-lindut-black bg-lindut-warm-white" placeholder="Ej: Lun a Sáb"></div>
+                        <div><label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Horario de Atención</label><input type="text" x-model="profesionalForm.horarioAtencion" class="input-lindut w-full px-4 py-2.5 rounded-xl text-xs text-lindut-black bg-lindut-warm-white" placeholder="Ej: 9:00 a 20:00"></div>
+                    </div>
+                    <div class="space-y-3 pt-2">
+                        <h4 class="text-xs font-bold text-lindut-wine uppercase tracking-wide tracking-luxury border-b border-lindut-stone pb-1">Carga de Documentación Solicitada</h4>
+                        <div><label class="block text-[11px] text-lindut-lavender mb-1">1. Constancia de Opción AFIP Activa (PDF/JPG)</label><input type="file" required accept=".pdf,.png,.jpg,.jpeg" class="w-full text-xs text-lindut-lavender file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:bg-lindut-cream"></div>
+                        <div><label class="block text-[11px] text-lindut-lavender mb-1">2. Certificado de Antecedentes Penales RNR (solo si atendés a domicilio)</label><input type="file" accept=".pdf,.png,.jpg,.jpeg" class="w-full text-xs text-lindut-lavender file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:bg-lindut-cream"></div>
+                    </div>
+                    <div class="bg-red-50 border border-red-200 rounded-xl p-4">
+                        <h4 class="text-xs font-black text-red-700 uppercase tracking-wide tracking-luxury mb-2 flex items-center gap-2"><span class="text-base">⚠️</span> Cláusula de Baja de Usuario Automática</h4>
+                        <p class="text-[11px] text-red-600 leading-relaxed heritage-serif">En caso de detectarse <strong>precio vil</strong> (cotización deliberadamente inferior al costo de mercado con fines de captación desleal), <strong>actos de competencia desleal</strong> conforme el art. 10 bis de la Convención de París, o cualquier conducta que atente contra la ética profesional del ecosistema Lindüt, el usuario profesional será <strong>dado de baja de forma inmediata y sin previo aviso</strong> del entorno digital, quedando suspendido el acceso a la cartelera de clientes y la liquidación de canones pendientes.</p>
+                    </div>
+                    <div class="bg-lindut-warm-white p-4 border border-lindut-stone rounded-xl space-y-3">
+                        <label class="flex items-start gap-3 cursor-pointer select-none"><input type="checkbox" x-model="profesionalForm.aceptaCanon" required class="mt-1 w-4 h-4 text-lindut-wine rounded accent-lindut-wine"><span class="text-[11px] text-lindut-lavender leading-normal heritage-serif">Entiendo y acepto el débito del canon administrativo del 1% sobre los montos estimados para acceder a las localizaciones de clientes. El canon se cobra a mí como profesional, NO al cliente.</span></label>
+                        <label class="flex items-start gap-3 cursor-pointer select-none"><input type="checkbox" x-model="profesionalForm.aceptaBajaUsuario" required class="mt-1 w-4 h-4 text-lindut-wine rounded accent-lindut-wine"><span class="text-[11px] text-lindut-lavender leading-normal heritage-serif">Acepto la cláusula de baja de usuario automática en caso de precio vil o competencia desleal, conforme los términos expuestos arriba.</span></label>
+                        <label class="flex items-start gap-3 cursor-pointer select-none"><input type="checkbox" x-model="profesionalForm.aceptaDatos" required class="mt-1 w-4 h-4 text-lindut-wine rounded accent-lindut-wine"><span class="text-[11px] text-lindut-lavender leading-normal heritage-serif">Presto consentimiento para el tratamiento de mis datos impositivos conforme las garantías de confidencialidad de la Ley 25.326.</span></label>
+                    </div>
+                    <button type="submit" :disabled="!profesionalForm.aceptaCanon || !profesionalForm.aceptaDatos || !profesionalForm.aceptaBajaUsuario" class="w-full btn-gold text-white py-4 rounded-xl font-bold text-sm uppercase tracking-widest disabled:opacity-40 tracking-luxury">Enviar Legajo a Auditoría</button>
+                </form>
+                <div x-show="profesionalEnviado" x-cloak class="bg-emerald-50 border border-emerald-200 rounded-xl p-8 text-center space-y-4 mt-6">
+                    <div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto"><span class="text-3xl">✅</span></div>
+                    <h3 class="text-xl font-display font-bold text-emerald-800">¡Gracias por registrarte!</h3>
+                    <p class="text-sm text-emerald-700 heritage-serif">Vamos a validar tus datos. Recibirás tu usuario por email.</p>
+                    <div class="bg-white rounded-lg p-4 border border-emerald-200 text-left text-sm space-y-2">
+                        <p><strong>👤 Nombre:</strong> <span x-text="profesionalForm.nombre + ' ' + profesionalForm.apellido"></span></p>
+                        <p><strong>📧 Email:</strong> <span x-text="profesionalForm.email"></span></p>
+                        <p><strong>🔑 Usuario:</strong> <span x-text="generarUsuarioProfesional()"></span></p>
+                        <p><strong>🔒 Contraseña:</strong> <span x-text="profesionalForm.dni"></span></p>
+                    </div>
+                    <p class="text-[11px] text-emerald-500 heritage-serif">Tu usuario es la <strong>primera letra de tu apellido + tu nombre completo</strong>. Ej: MARÍA LÓPEZ → <strong>Lmaria</strong>.<br>Tu contraseña es tu <strong>DNI sin puntos</strong>.<br>Te enviaremos estos datos a <strong x-text="profesionalForm.email"></strong>.</p>
+                    <button @click="profesionalEnviado = false; resetProfesionalForm(); view = 'home'" class="mt-2 btn-wine text-white px-8 py-3 rounded-xl font-bold text-sm tracking-elegant">Volver al Inicio</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIEW: LOGIN PROFESIONAL -->
+    <div x-show="view === 'login-profesional'" x-cloak class="min-h-screen bg-lindut-warm-white pb-20">
+        <div class="bg-white border-b border-lindut-stone">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                <button @click="view = 'home'" class="text-sm text-lindut-lavender hover:text-lindut-wine flex items-center gap-1 cursor-pointer tracking-elegant">← Volver al inicio</button>
+                <h1 class="text-2xl sm:text-3xl font-display font-bold text-lindut-black mt-3">Acceso Profesionales — Iniciar Sesión</h1>
+            </div>
+        </div>
+        <div class="max-w-md mx-auto px-4 py-12">
+            <div class="bg-white rounded-2xl shadow-luxury p-8 border border-lindut-stone">
+                <div class="text-center mb-6">
+                    <div class="w-14 h-14 bg-gradient-to-br from-lindut-rose to-lindut-wine rounded-2xl flex items-center justify-center mx-auto mb-3"><span class="text-2xl">✨</span></div>
+                    <h2 class="text-xl font-display font-bold text-lindut-black">Ingresá a tu panel</h2>
+                    <p class="text-xs text-lindut-lavender mt-1 tracking-elegant">Accedé a tus órdenes de pedido asignadas</p>
+                </div>
+                <form @submit.prevent="loginProfesional()" class="space-y-5">
+                    <div>
+                        <label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Usuario</label>
+                        <input type="text" x-model="loginUsuario" required class="input-lindut w-full px-4 py-3 rounded-xl text-sm font-mono uppercase" placeholder="Ej: Lmaria">
+                        <p class="text-[10px] text-lindut-lavender/60 mt-1">Primera letra del apellido + nombre completo</p>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Contraseña</label>
+                        <input type="password" x-model="loginPassword" required class="input-lindut w-full px-4 py-3 rounded-xl text-sm font-mono" placeholder="Tu DNI sin puntos">
+                        <p class="text-[10px] text-lindut-lavender/60 mt-1">Tu DNI sin puntos</p>
+                    </div>
+                    <p x-show="loginError" x-text="loginError" class="text-xs text-red-500 text-center font-bold"></p>
+                    <button type="submit" class="w-full btn-wine text-white py-3 rounded-xl font-bold text-sm tracking-elegant">Ingresar al Panel</button>
+                </form>
+                <div class="mt-6 pt-4 border-t border-lindut-stone text-center">
+                    <p class="text-[11px] text-lindut-lavender">¿No tenés usuario? <button @click="view = 'profesional'" class="text-lindut-gold font-bold hover:underline cursor-pointer">Registrate acá</button></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIEW: PANEL PROFESIONAL -->
+    <div x-show="view === 'panel-profesional'" x-cloak class="min-h-screen bg-lindut-warm-white pb-20">
+        <div class="bg-white border-b border-lindut-stone">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                <div class="flex items-center justify-between flex-wrap gap-3">
+                    <div>
+                        <button @click="view = 'home'" class="text-sm text-lindut-lavender hover:text-lindut-wine flex items-center gap-1 cursor-pointer tracking-elegant">← Volver al inicio</button>
+                        <h1 class="text-2xl sm:text-3xl font-display font-bold text-lindut-black mt-3">Panel del Profesional — Órdenes de Pedido</h1>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="text-right">
+                            <p class="text-xs text-lindut-lavender">Profesional</p>
+                            <p class="text-sm font-bold text-lindut-black" x-text="profesionalLogueado ? (profesionalLogueado.nombre + ' ' + profesionalLogueado.apellido) : 'Invitado'"></p>
+                        </div>
+                        <button @click="logoutProfesional()" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1.5 rounded-lg font-bold transition tracking-elegant">Cerrar Sesión</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-2xl mx-auto px-4 py-8">
+            <div x-show="!opAsignada.numero" class="bg-white rounded-2xl shadow-luxury p-8 border border-lindut-stone text-center">
+                <span class="text-4xl">📭</span>
+                <h3 class="text-lg font-display font-bold text-lindut-black mt-4">No tenés órdenes de pedido asignadas</h3>
+                <p class="text-sm text-lindut-lavender mt-2 heritage-serif">Cuando se te asigne una OP, aparecerá acá automáticamente.</p>
+                <button @click="view = 'home'" class="mt-4 btn-wine text-white px-6 py-2 rounded-lg text-sm font-bold tracking-elegant">Volver al inicio</button>
+            </div>
+            <div x-show="opAsignada.numero" class="bg-white rounded-2xl shadow-luxury p-8 border border-lindut-stone space-y-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-[10px] text-lindut-lavender uppercase tracking-wider font-bold tracking-luxury">Orden de Pedido</p>
+                        <p class="text-xl font-black font-mono text-lindut-gold">LND-20260721123456</p>
+                    </div>
+                    <span class="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-xs font-bold">PENDIENTE</span>
+                </div>
+                <div class="border border-lindut-stone rounded-xl p-4 text-xs space-y-2 bg-lindut-warm-white text-lindut-black">
+                    <p><strong>📋 Categoría:</strong> Manicura 💅</p>
+                    <p><strong>📍 Zona:</strong> Palermo, CABA</p>
+                    <p><strong>💬 Consulta del cliente:</strong> "Quiero hacerme las uñas esculpidas en gel, algo elegante para un evento."</p>
+                    <p><strong>📎 Archivos adjuntos:</strong> 2 fotos de referencia</p>
+                </div>
+                <div x-show="!canonLiquidado && !pagoPendienteValidacion" class="bg-amber-50 border-2 border-amber-300 rounded-xl p-6">
+                    <h3 class="text-sm font-bold text-amber-800 mb-3">💰 Paso 1 — Definir Monto del Servicio</h3>
+                    <p class="text-[11px] text-amber-600 mb-4 heritage-serif">Ingresá el monto que le vas a cobrar al cliente. Sobre ese monto se calcula el canon del 1% que debés pagar a Lindüt para desbloquear los datos de contacto del cliente.<br><strong>Monto mínimo de OP: $5.000 ARS.</strong></p>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Monto del servicio ($ARS) *</label>
+                            <input type="number" x-model="profesionalOPMonto" min="5000" class="input-lindut w-full px-4 py-3 rounded-xl text-sm font-mono" placeholder="Ej: 15000">
+                            <p class="text-[10px] text-lindut-lavender/60 mt-1">Mínimo: $5.000</p>
+                        </div>
+                        <div x-show="profesionalOPMonto >= 5000" class="bg-white rounded-lg p-4 border border-amber-200">
+                            <div class="flex justify-between text-sm mb-1"><span class="text-lindut-lavender">Monto del servicio:</span><span class="font-bold" x-text="'$' + Number(profesionalOPMonto).toLocaleString('es-AR')"></span></div>
+                            <div class="flex justify-between text-sm mb-1"><span class="text-lindut-lavender">Canon Lindüt (1%):</span><span class="font-bold text-amber-600" x-text="'$' + Math.round(profesionalOPMonto * 0.01).toLocaleString('es-AR')"></span></div>
+                            <hr class="my-2 border-lindut-stone">
+                            <div class="flex justify-between text-sm"><span class="text-lindut-lavender">Vos cobrás al cliente:</span><span class="font-bold text-lg text-lindut-black" x-text="'$' + Number(profesionalOPMonto).toLocaleString('es-AR')"></span></div>
+                        </div>
+                        <button x-show="profesionalOPMonto >= 5000" @click="pagoPendienteValidacion = true" class="w-full btn-gold text-white py-3 rounded-xl font-bold text-sm tracking-elegant">💳 Continuar al Pago del Canon</button>
+                    </div>
+                </div>
+                <div x-show="pagoPendienteValidacion && !canonLiquidado" class="space-y-5">
+                    <div class="bg-lindut-black text-lindut-cream border border-lindut-wine/30 rounded-xl p-5 relative overflow-hidden">
+                        <div class="absolute -right-6 -top-6 w-20 h-20 bg-lindut-gold/10 rounded-full blur-2xl"></div>
+                        <h3 class="text-xs font-black text-lindut-gold uppercase tracking-widest mb-2 flex items-center tracking-luxury">🔒 Paso 2 — Transferencia Bancaria</h3>
+                        <p class="text-[11px] text-lindut-lavender leading-relaxed mb-4 heritage-serif">Realizá una <strong>transferencia bancaria directa</strong> del canon del 1% a la cuenta de Lindüt. Una vez que el pago impacte, el administrador te enviará un <strong>código de validación único</strong> para desbloquear los datos del cliente.</p>
+                        <div class="bg-lindut-dark rounded-lg p-4 mb-4 border border-lindut-wine/20">
+                            <p class="text-[10px] text-lindut-lavender uppercase tracking-wider mb-2 font-bold tracking-luxury">Datos para transferencia:</p>
+                            <p class="text-sm font-mono text-lindut-gold mb-1">Alias: <strong>lindutargentina</strong></p>
+                            <p class="text-sm font-mono text-lindut-gold">Titular: Lindüt Argentina</p>
+                            <p class="text-[10px] text-lindut-lavender mt-2">Concepto: Canon OP <span x-text="opNumero || 'LND-XXXX'"></span></p>
+                            <p class="text-[10px] text-lindut-lavender">Monto a transferir: <strong class="text-lindut-gold" x-text="'$' + Math.round(profesionalOPMonto * 0.01).toLocaleString('es-AR') + ' ARS'"></strong></p>
+                        </div>
+                        <button type="button" @click="copiarDatosTransferencia()" class="w-full bg-gradient-to-r from-lindut-gold to-lindut-gold-dark hover:from-lindut-gold-light hover:to-lindut-gold text-lindut-black text-xs py-3 rounded-lg font-extrabold uppercase tracking-wider transition-all active:scale-[0.99] flex items-center justify-center gap-2 border border-lindut-gold-light tracking-luxury">📋 Copiar Datos de Transferencia</button>
+                    </div>
+                    <div class="bg-amber-50 border border-amber-200 rounded-xl p-4">
+                        <h4 class="text-xs font-bold text-amber-700 mb-2 tracking-elegant">📋 Instrucciones post-pago:</h4>
+                        <ol class="text-[11px] text-amber-600 space-y-1 list-decimal list-inside heritage-serif">
+                            <li>Realizá la transferencia del canon a la cuenta de Lindüt.</li>
+                            <li>El administrador validará el pago y generará un código de desbloqueo.</li>
+                            <li>Volvé a esta página y presioná <strong>"Validar Código de Desbloqueo"</strong>.</li>
+                            <li>Ingresá el código para acceder a los datos del cliente.</li>
+                        </ol>
+                    </div>
+                    <button @click="mostrarValidacionCodigo = true" class="w-full bg-lindut-dark text-white py-3 rounded-xl font-bold text-sm tracking-elegant">🔓 Validar Código de Desbloqueo →</button>
+                    <button @click="pagoPendienteValidacion = false" class="w-full text-lindut-lavender text-xs py-2">← Volver a definir monto</button>
+                </div>
+                <div x-show="mostrarValidacionCodigo && !canonLiquidado" class="bg-emerald-50 border border-emerald-200 rounded-xl p-5">
+                    <h3 class="text-sm font-bold text-emerald-800 mb-3">🔓 Validar Código de Desbloqueo</h3>
+                    <p class="text-[11px] text-emerald-600 mb-4 heritage-serif">Ingresá el código de validación que recibiste por email una vez acreditada la transferencia.</p>
+                    <div class="space-y-3">
+                        <div><label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Código de validación *</label><input type="text" x-model="canonCodigoValidar" placeholder="Ej: ABC123" class="input-lindut w-full px-4 py-3 rounded-xl text-sm font-mono text-center tracking-[0.3em] uppercase"></div>
+                        <div><label class="block text-xs font-bold text-lindut-wine mb-1 tracking-elegant">Monto transferido ($ARS) *</label><input type="number" x-model="canonMontoValidar" placeholder="Ej: 150" class="input-lindut w-full px-4 py-3 rounded-xl text-sm font-mono"></div>
+                    </div>
+                    <p x-show="codigoError" x-text="codigoError" class="text-xs text-red-500 mt-2 text-center font-bold"></p>
+                    <button @click="validarCodigoDesbloqueo()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-xl font-bold text-sm mt-3 tracking-elegant">🔍 Validar Desbloqueo</button>
+                    <button @click="mostrarValidacionCodigo = false" class="w-full text-lindut-lavender text-xs mt-2 py-2">← Volver</button>
+                </div>
+                <div x-show="canonLiquidado" x-cloak class="bg-emerald-50 border border-emerald-200 rounded-xl p-6 text-center">
+                    <span class="text-3xl">🔓</span>
+                    <h3 class="text-lg font-display font-bold text-emerald-800 mt-2">¡Canon Pagado — Datos Desbloqueados!</h3>
+                    <div class="mt-4 text-left bg-white rounded-lg p-4 border border-emerald-200 text-sm space-y-2">
+                        <p><strong>👤 Nombre:</strong> <span x-text="opAsignada.cliente.nombre"></span></p>
+                        <p><strong>📱 Teléfono:</strong> <span x-text="opAsignada.cliente.telefono"></span></p>
+                        <p><strong>📧 Email:</strong> <span x-text="opAsignada.cliente.email"></span></p>
+                        <p><strong>📍 Dirección:</strong> <span x-text="opAsignada.cliente.direccion"></span></p>
+                    </div>
+                    <p class="text-[11px] text-emerald-600 mt-3 heritage-serif">Contactá al cliente para coordinar fecha, hora y detalles del servicio.</p>
+                    <button @click="canonLiquidado = false; pagoPendienteValidacion = false; mostrarValidacionCodigo = false; view = 'home'" class="mt-4 btn-wine text-white px-6 py-2 rounded-lg text-sm font-bold tracking-elegant">Finalizar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIEW: TERMINOS -->
+    <div x-show="view === 'tyc'" x-cloak class="min-h-screen bg-lindut-warm-white pb-20">
+        <div class="max-w-4xl mx-auto px-4 py-8">
+            <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-6 flex items-center justify-between">
+                <div>
+                    <p class="text-sm font-bold text-amber-800">📄 Documento completo disponible</p>
+                    <p class="text-[11px] text-amber-600 heritage-serif">Descargá la versión PDF con todas las cláusulas legales.</p>
+                </div>
+                <a href="TERMINOS_Y_CONDICIONES_LINDUT.pdf" download class="btn-gold text-white px-4 py-2 rounded-lg text-xs font-bold tracking-elegant">Descargar PDF</a>
+            </div>
+            <div class="bg-white rounded-2xl shadow-luxury p-8 border border-lindut-stone space-y-6 text-sm text-lindut-black leading-relaxed heritage-serif">
+                <h2 class="text-2xl font-display font-black text-lindut-black">Marco Jurídico Vigente y Términos Generales</h2>
+                <p><strong>1. Declaración de Neutralidad:</strong> Lindüt es un entorno tecnológico de intermediación y negociación operado exclusivamente bajo la modalidad de locación de software de gestión administrativa ("Secretaría Digital"). No somos empresa de estética ni asumimos subordinación ni empleo con los profesionales adheridos.</p>
+                <p><strong>2. Canon Operativo:</strong> El uso de la plataforma devenga una tasa administrativa estricta del 1% sobre los costos de los servicios acordados de mutuo acuerdo de forma privada. El canon se liquida por el profesional, nunca por el cliente.</p>
+                <p><strong>3. Cláusula de Baja de Usuario:</strong> Se establece baja de usuario inmediata y sin previo aviso en caso de: (a) precio vil o dumping deliberado; (b) competencia desleal conforme art. 10 bis Convención de París; (c) conductas que atenten contra la ética profesional del ecosistema.</p>
+                <p><strong>4. Ley 25.326:</strong> La recolección de legajos fiscales y antecedentes del Registro Nacional de Reincidencia (RNR) se ejecuta exclusivamente con fines confidenciales de auditoría de seguridad del ecosistema, otorgando al titular plenos derechos de acceso y rectificación.</p>
+                <p><strong>5. Modalidades de Atención:</strong> Los profesionales pueden optar por atención a domicilio, en local propio, o ambas modalidades. Quienes opten por atención a domicilio deberán presentar certificado de antecedentes penales (RNR) vigente como requisito de seguridad para el cliente.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-lindut-black text-lindut-lavender py-12 border-t border-lindut-wine/20">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs space-y-3">
+            <p class="font-display text-lg text-lindut-gold">Lindüt</p>
+            <p>© 2026 Lindüt. Todos los derechos reservados. Operación tecnológica bajo Locación de Software ("Secretaría Digital").</p>
+            <p class="text-lindut-lavender/60 heritage-serif">Protección del Ecosistema de Datos amparado bajo los términos estrictos de la Ley Nacional Nº 25.326.</p>
+            <div class="pt-3 border-t border-lindut-wine/20 mt-3">
+                <a href="TERMINOS_Y_CONDICIONES_LINDUT.pdf" download class="inline-flex items-center gap-2 text-lindut-gold hover:text-lindut-gold-light transition-colors font-semibold tracking-elegant">
+                    <span>📄</span> Descargar Términos y Condiciones Completos (PDF)
+                </a>
+                <p class="text-[10px] text-lindut-lavender/40 mt-1">Última actualización: Julio de 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function lindutApp() {
+            return {
+                view: 'home',
+                mobileMenu: false,
+                clienteStep: 1,
+                categoriaSelected: null,
+                profesionalSelected: null,
+                chatMessages: [],
+                lunaTextInput: '',
+                diagnosticoComplete: false,
+                canonLiquidado: false,
+                pagoPendienteValidacion: false,
+                canonMontoValidar: '',
+                canonCodigoValidar: '',
+                codigoError: '',
+                opNumero: '',
+                opGenerada: false,
+
+                adminModal: false,
+                adminPassword: '',
+                adminError: '',
+                adminMonto: '',
+                adminSolicitudId: '',
+                codigoGenerado: '',
+                codigosHistorial: [],
+
+                clienteForm: { nombre: '', telefono: '', email: '', calle: '', altura: '', localidad: '', provincia: '', direccion: '', aceptaLey: false, mayorEdad: false },
+                profesionalForm: { nombre: '', apellido: '', cuit: '', dni: '', email: '', telefono: '', especialidad: 'Manicura / Pedicura', experiencia: '', modalidad: 'domicilio', direccionLocal: '', diasAtencion: '', horarioAtencion: '', aceptaCanon: false, aceptaBajaUsuario: false, aceptaDatos: false },
+                profesionalEnviado: false,
+                loginUsuario: '',
+                loginPassword: '',
+                loginError: '',
+                profesionalLogueado: null,
+                profesionalesRegistrados: [],
+                altaForm: { nombre: '', apellido: '', dni: '', email: '', telefono: '', especialidad: 'Manicura / Pedicura', cuit: '', experiencia: '', modalidad: 'domicilio' },
+                altaExitosa: false,
+                profesionalAltaReciente: null,
+                busquedaProfesional: '',
+                filtroEstado: 'todos',
+                filtroEspecialidad: 'todas',
+                profesionalEditando: null,
+                editForm: { nombre: '', apellido: '', dni: '', email: '', telefono: '', especialidad: '', cuit: '', experiencia: '', modalidad: 'domicilio' },
+                modalHistorialOPs: false,
+                profesionalHistorial: null,
+                modalDetalleProfesional: false,
+                profesionalDetalle: null,
+                modalAsignarOP: false,
+                profesionalAsignarOP: null,
+                opManualForm: { numero: '', categoria: 'Manicura 💅', zona: '', diagnostico: '', monto: '', estado: 'pendiente', clienteNombre: '', clienteTelefono: '', clienteEmail: '' },
+                profesionalOPMonto: 5000,
+                mostrarValidacionCodigo: false,
+                solicitudEnviada: false,
+                opAsignada: {
+                    numero: 'LND-20260721123456',
+                    categoria: 'Manicura 💅',
+                    zona: 'Palermo, CABA',
+                    diagnostico: 'Quiero hacerme las uñas esculpidas en gel, algo elegante para un evento.',
+                    archivos: '2 fotos de referencia',
+                    cliente: { nombre: 'Ana García', telefono: '+54 9 11 2345-6789', email: 'ana.garcia@email.com', direccion: 'Av. Santa Fe 1234, Palermo, CABA' }
+                },
+                diagnostico: { categoria: '', sintoma: '', zona: '', urgencia: 'Normal' },
+                lunaPreguntaIndex: 0,
+                lunaRespuestas: [],
+
+                categorias: [
+                    { id: 'manicura', nombre: 'Manicura / Pedicura', icon: '💅', descripcion: 'Esmaltado, esculpidas, semipermanente, spa de manos.', keywords: ['uña', 'manicura', 'pedicura', 'esmalte', 'semipermanente', 'esculpidas', 'gel', 'acrilico', 'kapping'] },
+                    { id: 'peluqueria', nombre: 'Peluquería / Colorimetría', icon: '✂️', descripcion: 'Cortes, color, balayage, tratamientos capilares.', keywords: ['corte', 'tinte', 'color', 'mechas', 'balayage', 'pelo', 'cabello', 'alisado', 'keratina', 'botox'] },
+                    { id: 'barberia', nombre: 'Barbería', icon: '🪒', descripcion: 'Cortes masculinos, barba, perfilado, tratamientos.', keywords: ['barba', 'corte masculino', 'afeitado', 'perfilado', 'barbero', 'fade', 'degradado'] },
+                    { id: 'maquillaje', nombre: 'Maquillaje', icon: '💄', descripcion: 'Social, eventos, novias, producciones, clases.', keywords: ['maquillaje', 'makeup', 'social', 'novia', 'evento', 'peinado', 'glam'] },
+                    { id: 'estetica', nombre: 'Estética Facial', icon: '🧖‍♀️', descripcion: 'Limpieza facial, hidratación, peeling, mascarillas.', keywords: ['cara', 'facial', 'limpieza', 'peeling', 'hidratacion', 'acne', 'arrugas', 'rejuvenecimiento'] },
+                    { id: 'depilacion', nombre: 'Depilación', icon: '🧴', descripcion: 'Cera, láser, definitiva, cuerpo completo.', keywords: ['depilacion', 'cera', 'laser', 'definitiva', 'vello', 'piernas', 'axilas', 'bikini'] },
+                    { id: 'masajes', nombre: 'Masajes / Spa', icon: '🌿', descripcion: 'Relajantes, descontracturantes, drenaje linfático.', keywords: ['masaje', 'relajante', 'descontracturante', 'drenaje', 'spa', 'reflexologia', 'piedras'] },
+                    { id: 'pestana', nombre: 'Pestañas / Cejas', icon: '👁️', descripcion: 'Lifting, laminado, microblading, extensiones.', keywords: ['pestaña', 'ceja', 'lifting', 'laminado', 'microblading', 'extensiones', 'henna'] }
+                ],
+
+                get profesionalesFiltrados() {
+                    if (!this.categoriaSelected) return this.profesionales;
+                    const idCat = this.categoriaSelected.id;
+                    const zonaCliente = (this.clienteForm.localidad || '').toLowerCase();
+                    let exactos = this.profesionales.filter(p => p.cat === idCat && p.zona.toLowerCase().includes(zonaCliente));
+                    let mismos = this.profesionales.filter(p => p.cat === idCat && !p.zona.toLowerCase().includes(zonaCliente));
+                    let resultado = exactos.length > 0 ? exactos : (mismos.length > 0 ? mismos : this.profesionales);
+                    return resultado.sort((a, b) => {
+                        const aZona = a.zona.toLowerCase().includes(zonaCliente) ? 0 : 1;
+                        const bZona = b.zona.toLowerCase().includes(zonaCliente) ? 0 : 1;
+                        if (aZona !== bZona) return aZona - bZona;
+                        return b.match - a.match;
+                    });
+                },
+
+                abrirAdmin() { this.adminModal = true; this.adminPassword = ''; this.adminError = ''; },
+                abrirPanelProfesional() { this.view = 'panel-profesional'; },
+
+                loginAdmin() {
+                    if (this.adminPassword === 'l1ndut2026') {
+                        this.adminModal = false;
+                        this.view = 'admin';
+                        this.adminError = '';
+                    } else {
+                        this.adminError = 'Contraseña incorrecta. Acceso denegado.';
+                    }
+                },
+
+                async generarCodigoAdmin() {
+                    if (!this.adminMonto || this.adminMonto <= 0) { alert('Ingresá el monto acreditado.'); return; }
+                    const fecha = new Date().toISOString().split('T')[0];
+                    const salt = 'LINDUT_ARG_SECRET_2026_V1';
+                    const str = this.adminMonto.toString() + fecha + salt;
+                    let hash = 0;
+                    for (let i = 0; i < str.length; i++) { const char = str.charCodeAt(i); hash = ((hash << 5) - hash) + char; hash = hash & hash; }
+                    let codigo = Math.abs(hash).toString(36).toUpperCase().padEnd(6, '0').substring(0, 6);
+                    if (codigo.length < 6) codigo = codigo + '0'.repeat(6 - codigo.length);
+                    this.codigoGenerado = codigo;
+                    const ahora = new Date();
+                    const horaStr = ahora.getHours().toString().padStart(2, '0') + ':' + ahora.getMinutes().toString().padStart(2, '0');
+                    this.codigosHistorial.unshift({ codigo: codigo, monto: this.adminMonto, hora: horaStr, usado: false });
+                    if (this.codigosHistorial.length > 10) this.codigosHistorial.pop();
+                    await this.enviarCodigoPorEmail(codigo, this.adminMonto, this.adminSolicitudId);
+                },
+
+                async enviarCodigoPorEmail(codigo, monto, solicitudId) {
+                    const formData = new FormData();
+                    formData.append('_captcha', 'false');
+                    formData.append('_template', 'table');
+                    formData.append('_subject', '🔓 Código de Desbloqueo Generado - Lindüt');
+                    formData.append('mensaje', 'NUEVO CÓDIGO DE DESBLOQUEO GENERADO\n\n' + 'Código: ' + codigo + '\n' + 'Monto validado: $' + monto + ' ARS\n' + 'Solicitud ID: ' + (solicitudId || 'N/A') + '\n' + 'Fecha: ' + new Date().toLocaleString('es-AR') + '\n\n' + 'Este código debe ser comunicado al profesional para desbloquear los datos del cliente.');
+                    try {
+                        await fetch('https://formsubmit.co/ajax/lindutargentina@gmail.com', { method: 'POST', body: formData });
+                        alert('✅ Código generado y enviado a lindutargentina@gmail.com\n\nCódigo: ' + codigo);
+                    } catch (e) { alert('⚠️ Código generado: ' + codigo + '\n\nNo se pudo enviar el email automático. Copiá el código manualmente.'); }
+                },
+
+                copiarCodigoAdmin() {
+                    const el = document.createElement('textarea');
+                    el.value = this.codigoGenerado;
+                    document.body.appendChild(el); el.select(); document.execCommand('copy'); document.body.removeChild(el);
+                    alert('Código ' + this.codigoGenerado + ' copiado al portapapeles.');
+                },
+
+                validarCodigoDesbloqueo() {
+                    this.codigoError = '';
+                    if (!this.canonCodigoValidar || !this.canonMontoValidar) { this.codigoError = 'Completá el código y el monto transferido.'; return; }
+                    const fecha = new Date().toISOString().split('T')[0];
+                    const salt = 'LINDUT_ARG_SECRET_2026_V1';
+                    const str = this.canonMontoValidar.toString() + fecha + salt;
+                    let hash = 0;
+                    for (let i = 0; i < str.length; i++) { const char = str.charCodeAt(i); hash = ((hash << 5) - hash) + char; hash = hash & hash; }
+                    let codigoEsperado = Math.abs(hash).toString(36).toUpperCase().padEnd(6, '0').substring(0, 6);
+                    if (codigoEsperado.length < 6) codigoEsperado = codigoEsperado + '0'.repeat(6 - codigoEsperado.length);
+                    if (this.canonCodigoValidar.toUpperCase() === codigoEsperado) {
+                        this.canonLiquidado = true; this.pagoPendienteValidacion = false; this.mostrarValidacionCodigo = false; this.codigoError = '';
+                    } else { this.codigoError = 'Código incorrecto. Verificá el monto y el código recibido.'; }
+                },
+
+                selectCategoria(cat) { this.categoriaSelected = cat; this.clienteStep = 2; },
+
+                detectarCategoriaPorTexto(texto) {
+                    const t = texto.toLowerCase();
+                    const mapa = {
+                        'manicura': ['uña', 'manicura', 'pedicura', 'esmalte', 'semipermanente', 'esculpidas', 'gel', 'acrilico', 'kapping'],
+                        'peluqueria': ['corte', 'tinte', 'color', 'mechas', 'balayage', 'pelo', 'cabello', 'alisado', 'keratina', 'botox'],
+                        'barberia': ['barba', 'corte masculino', 'afeitado', 'perfilado', 'barbero', 'fade', 'degradado'],
+                        'maquillaje': ['maquillaje', 'makeup', 'social', 'novia', 'evento', 'peinado', 'glam'],
+                        'estetica': ['cara', 'facial', 'limpieza', 'peeling', 'hidratacion', 'acne', 'arrugas', 'rejuvenecimiento'],
+                        'depilacion': ['depilacion', 'cera', 'laser', 'definitiva', 'vello', 'piernas', 'axilas', 'bikini'],
+                        'masajes': ['masaje', 'relajante', 'descontracturante', 'drenaje', 'spa', 'reflexologia', 'piedras'],
+                        'pestana': ['pestaña', 'ceja', 'lifting', 'laminado', 'microblading', 'extensiones', 'henna']
+                    };
+                    for (const [catId, keywords] of Object.entries(mapa)) {
+                        if (keywords.some(k => t.includes(k))) { const cat = this.categorias.find(c => c.id === catId); if (cat && cat.id !== this.categoriaSelected?.id) return cat; }
+                    }
+                    return null;
+                },
+
+                iniciarChat() {
+                    this.clienteForm.direccion = this.clienteForm.calle + ' ' + this.clienteForm.altura + ', ' + this.clienteForm.localidad + ', ' + this.clienteForm.provincia;
+                    this.lunaPreguntaIndex = 0; this.lunaRespuestas = [];
+                    this.diagnostico.categoria = this.categoriaSelected.nombre;
+                    this.diagnostico.zona = this.clienteForm.localidad;
+                    const mensajesIniciales = [
+                        { from: 'luna', text: '¡Hola <strong>' + this.clienteForm.nombre.split(' ')[0] + '</strong>! Soy Luna, tu asistente de belleza en Lindüt. 🌙' },
+                        { from: 'luna', text: 'Registré que necesitás <strong>' + this.categoriaSelected.nombre + '</strong> en <strong>' + this.clienteForm.localidad + ', ' + this.clienteForm.provincia + '</strong>.' },
+                        { from: 'luna', text: this.generarPreguntaLuna(0) }
+                    ];
+                    this.chatMessages = mensajesIniciales; this.clienteStep = 3;
+                },
+
+                generarPreguntaLuna(index) {
+                    const catId = this.categoriaSelected.id;
+                    const preguntas = {
+                        'manicura': ['¿Qué tipo de servicio preferís? ¿Esmaltado común, semipermanente, esculpidas o kapping? 💅', '¿Tenés alguna alergia conocida a productos de uñas?', '¿Preferís algún largo o forma específica?', '¿Es para alguna ocasión especial?'],
+                        'peluqueria': ['¿Qué tipo de servicio necesitás? ¿Corte, color, tratamiento o peinado? ✂️', '¿Tenés el cabello teñido actualmente?', '¿Preferís alguna técnica específica (balayage, mechas, etc.)?', '¿Tenés alguna restricción de tiempo?'],
+                        'barberia': ['¿Qué estilo de corte preferís? ¿Clásico, moderno, fade? 🪒', '¿Necesitás también arreglo de barba?', '¿Tenés alguna preferencia de productos?', '¿Es para algún evento especial?'],
+                        'maquillaje': ['¿Para qué ocasión necesitás el maquillaje? ¿Social, evento, novia? 💄', '¿Tenés alguna preferencia de estilo (natural, glam, etc.)?', '¿Necesitás también peinado?', '¿Tenés piel sensible o alguna alergia?'],
+                        'estetica': ['¿Qué tipo de tratamiento facial buscás? 🧖‍♀️', '¿Qué tipo de piel tenés? ¿Grasa, mixta, seca, sensible?', '¿Tenés alguna condición dermatológica?', '¿Buscás resultados inmediatos o tratamiento a largo plazo?'],
+                        'depilacion': ['¿Qué zona querés depilar? 🧴', '¿Preferís cera caliente, tibia o láser?', '¿Tenés la piel sensible o alguna contraindicación?', '¿Es tu primera vez con este tipo de depilación?'],
+                        'masajes': ['¿Qué tipo de masaje preferís? ¿Relajante, descontracturante, drenaje? 🌿', '¿Tenés alguna dolencia o lesión?', '¿Preferís presión suave, media o fuerte?', '¿Necesitás que el profesional lleve su propia camilla?'],
+                        'pestana': ['¿Qué servicio buscás? ¿Lifting, laminado, microblading, extensiones? 👁️', '¿Tenés las cejas o pestañas tintadas actualmente?', '¿Preferís un look natural o más marcado?', '¿Tenés alguna alergia a productos de ojos?']
+                    };
+                    const lista = preguntas[catId] || preguntas['manicura'];
+                    return lista[index] || '¿Hay algo más que quieras agregar para que el profesional llegue mejor preparado/a?';
+                },
+
+                enviarTextoLuna() {
+                    if (!this.lunaTextInput.trim()) return;
+                    const respuesta = this.lunaTextInput;
+                    this.chatMessages.push({ from: 'user', text: respuesta });
+                    this.lunaRespuestas.push(respuesta); this.lunaTextInput = '';
+                    const categoriaDetectada = this.detectarCategoriaPorTexto(respuesta);
+                    setTimeout(() => {
+                        if (categoriaDetectada && categoriaDetectada.id !== this.categoriaSelected.id) {
+                            this.chatMessages.push({ from: 'luna', text: '🤔 <strong>Detecté que tu solicitud podría ser de <strong>' + categoriaDetectada.nombre + '</strong>.</strong><br><br>' + 'Vos seleccionaste <strong>' + this.categoriaSelected.nombre + '</strong>.<br>' + '¿Querés cambiar la categoría a <strong>' + categoriaDetectada.nombre + '</strong>?<br><br>' + '<button @click="cambiarCategoriaLuna(' + "'" + categoriaDetectada.id + "'" + ')" class="btn-wine text-white px-4 py-2 rounded-lg text-xs font-bold mr-2">Sí, cambiar a ' + categoriaDetectada.nombre + '</button>' + '<button @click="continuarCategoriaActual()" class="bg-slate-100 text-slate-700 px-4 py-2 rounded-lg text-xs font-bold">No, seguir con ' + this.categoriaSelected.nombre + '</button>' });
+                            return;
+                        }
+                        this.lunaPreguntaIndex++;
+                        if (this.lunaPreguntaIndex < 4) { this.chatMessages.push({ from: 'luna', text: this.generarPreguntaLuna(this.lunaPreguntaIndex) }); }
+                        else {
+                            this.diagnostico.sintoma = this.lunaRespuestas.join(' | ');
+                            this.diagnostico.categoria = this.categoriaSelected.nombre;
+                            this.diagnostico.zona = this.clienteForm.localidad;
+                            this.diagnosticoComplete = true;
+                            const resumenLuna = '<strong>📋 Consulta Finalizada</strong><br><br>' + '• <strong>Categoría:</strong> ' + this.categoriaSelected.nombre + '<br>' + '• <strong>Zona:</strong> ' + this.clienteForm.localidad + ', ' + this.clienteForm.provincia + '<br>' + '• <strong>Detalles:</strong><br>' + this.lunaRespuestas.map((r, i) => '  &nbsp;&nbsp;' + (i + 1) + '. ' + r).join('<br>') + '<br><br>' + '• <strong>Prioridad:</strong> ' + this.diagnostico.urgencia + '<br><br>' + '✅ Tu consulta completa viajará en la OP que recibirá el profesional.<br>' + '👉 Presioná el botón para ver profesionales disponibles en tu zona.';
+                            this.chatMessages.push({ from: 'luna', text: resumenLuna });
+                        }
+                    }, 800);
+                },
+
+                cambiarCategoriaLuna(catId) {
+                    const nuevaCat = this.categorias.find(c => c.id === catId);
+                    if (nuevaCat) {
+                        this.categoriaSelected = nuevaCat;
+                        this.chatMessages.push({ from: 'luna', text: '✅ <strong>Categoría cambiada a ' + nuevaCat.nombre + '</strong>. Continuemos...' });
+                        this.lunaPreguntaIndex = 0; this.lunaRespuestas = [];
+                        setTimeout(() => { this.chatMessages.push({ from: 'luna', text: this.generarPreguntaLuna(0) }); }, 500);
+                    }
+                },
+
+                continuarCategoriaActual() {
+                    this.lunaPreguntaIndex++;
+                    if (this.lunaPreguntaIndex < 4) { this.chatMessages.push({ from: 'luna', text: this.generarPreguntaLuna(this.lunaPreguntaIndex) }); }
+                },
+
+                previsualizarArchivosDiagnostico(event) {
+                    const files = event.target.files;
+                    const preview = document.getElementById('preview-diagnostico');
+                    preview.innerHTML = '';
+                    Array.from(files).forEach(file => {
+                        const div = document.createElement('div'); div.className = 'relative';
+                        if (file.type.startsWith('image/')) {
+                            const img = document.createElement('img');
+                            img.src = URL.createObjectURL(file); img.className = 'w-20 h-20 object-cover rounded-lg border border-lindut-stone';
+                            div.appendChild(img);
+                        }
+                        const nombre = document.createElement('span');
+                        nombre.className = 'text-[9px] text-lindut-lavender block text-center mt-1 max-w-[80px] truncate';
+                        nombre.textContent = file.name; div.appendChild(nombre); preview.appendChild(div);
+                    });
+                },
+
+                selectProfesional(pro) {
+                    this.profesionalSelected = pro;
+                    this.canonLiquidado = false; this.pagoPendienteValidacion = false;
+                    this.canonMontoValidar = ''; this.canonCodigoValidar = ''; this.codigoError = '';
+                    this.clienteForm.aceptaLey = false; this.profesionalOPMonto = 5000;
+                    this.opNumero = 'LND-' + Date.now(); this.opGenerada = true; this.clienteStep = 5;
+                },
+
+                tieneProfesionalesEnZona() {
+                    if (!this.categoriaSelected || !this.clienteForm.localidad) return true;
+                    const zonaCliente = this.clienteForm.localidad.toLowerCase();
+                    return this.profesionales.some(p => p.cat === this.categoriaSelected.id && p.zona.toLowerCase().includes(zonaCliente));
+                },
+
+                volverACategorias() {
+                    this.clienteStep = 1; this.categoriaSelected = null; this.profesionalSelected = null;
+                    this.diagnosticoComplete = false; this.opNumero = ''; this.opGenerada = false;
+                },
+
+                copiarDatosTransferencia() {
+                    const datos = 'Alias: lindutargentina\nTitular: Lindüt Argentina\nConcepto: Canon operativo Lindüt - 1%';
+                    const el = document.createElement('textarea'); el.value = datos;
+                    document.body.appendChild(el); el.select(); document.execCommand('copy'); document.body.removeChild(el);
+                    alert('¡Datos de transferencia copiados!\n\nAlias: lindutargentina\nTitular: Lindüt Argentina\n\nRealizá la transferencia del 1% y el admin te enviará el código de desbloqueo.');
+                },
+
+                async enviarSolicitudCliente() {
+                    const formData = new FormData();
+                    formData.append('_captcha', 'false');
+                    formData.append('_template', 'table');
+                    formData.append('_subject', '🚨 Nueva Solicitud - OP ' + this.opNumero);
+                    formData.append('op_numero', this.opNumero);
+                    formData.append('cliente_nombre', this.clienteForm.nombre);
+                    formData.append('cliente_telefono', this.clienteForm.telefono);
+                    formData.append('cliente_email', this.clienteForm.email);
+                    formData.append('cliente_direccion', this.clienteForm.direccion);
+                    formData.append('diagnostico', this.diagnostico.sintoma);
+                    formData.append('categoria', this.diagnostico.categoria);
+                    formData.append('profesional_asignado', this.profesionalSelected?.nombre || '');
+                    const fotos = document.getElementById('fotos-cliente');
+                    if (fotos && fotos.files.length > 0) { for (let i = 0; i < Math.min(fotos.files.length, 4); i++) { formData.append('fotos_evidencia', fotos.files[i]); } }
+                    try { await fetch('https://formsubmit.co/ajax/lindutargentina@gmail.com', { method: 'POST', body: formData }); } catch (e) { console.log('Error envío:', e); }
+                    this.solicitudEnviada = true;
+                },
+
+                resetCliente() {
+                    this.clienteStep = 1; this.categoriaSelected = null; this.profesionalSelected = null;
+                    this.diagnosticoComplete = false; this.opNumero = ''; this.opGenerada = false;
+                    this.clienteForm = { nombre: '', telefono: '', calle: '', altura: '', localidad: '', provincia: '', direccion: '', aceptaLey: false, mayorEdad: false };
+                    this.diagnostico = { categoria: '', sintoma: '', zona: '', urgencia: 'Normal' };
+                    this.lunaPreguntaIndex = 0; this.lunaRespuestas = []; this.chatMessages = [];
+                },
+
+                generarUsuarioProfesional() {
+                    if (!this.profesionalForm.nombre || !this.profesionalForm.apellido) return '';
+                    const apellidoPrimera = this.profesionalForm.apellido.trim().charAt(0).toUpperCase();
+                    const nombreLimpio = this.profesionalForm.nombre.trim().toLowerCase().replace(/\s+/g, '');
+                    return apellidoPrimera + nombreLimpio;
+                },
+
+                resetProfesionalForm() {
+                    this.profesionalForm = { nombre: '', apellido: '', cuit: '', dni: '', email: '', telefono: '', especialidad: 'Manicura / Pedicura', experiencia: '', modalidad: 'domicilio', direccionLocal: '', diasAtencion: '', horarioAtencion: '', aceptaCanon: false, aceptaBajaUsuario: false, aceptaDatos: false };
+                },
+
+                loginProfesional() {
+                    this.loginError = '';
+                    const usuarioInput = this.loginUsuario.trim();
+                    const passwordInput = this.loginPassword.trim();
+                    const profesional = this.profesionalesRegistrados.find(p => {
+                        const usuarioGenerado = p.apellido.charAt(0).toUpperCase() + p.nombre.toLowerCase().replace(/\s+/g, '');
+                        return usuarioGenerado === usuarioInput && p.dni === passwordInput;
+                    });
+                    if (profesional) { this.profesionalLogueado = profesional; this.loginUsuario = ''; this.loginPassword = ''; this.loginError = ''; this.view = 'panel-profesional'; }
+                    else { this.loginError = 'Usuario o contraseña incorrectos. Verificá tus datos.'; }
+                },
+
+                logoutProfesional() { this.profesionalLogueado = null; this.view = 'home'; },
+
+                async enviarAlertaOPPorEmail(opData, profesionalEmail) {
+                    const formData = new FormData();
+                    formData.append('_captcha', 'false');
+                    formData.append('_template', 'table');
+                    formData.append('_subject', '🚨 NUEVA ORDEN DE PEDIDO ASIGNADA — Lindüt');
+                    formData.append('destinatario', profesionalEmail);
+                    formData.append('mensaje', '¡TENÉS UNA NUEVA ORDEN DE PEDIDO ASIGNADA!\n\n' + '═══════════════════════════════════════\n' + 'OP: ' + opData.numero + '\n' + 'Categoría: ' + opData.categoria + '\n' + 'Zona: ' + opData.zona + '\n' + 'Servicio: ' + opData.diagnostico + '\n' + '═══════════════════════════════════════\n\n' + 'Para desbloquear los datos del cliente, ingresá a tu panel en lindut.com y pagá el canon del 1%.\n\n' + 'Tu usuario: ' + this.generarUsuarioProfesional() + '\n' + 'Tu contraseña: tu DNI sin puntos\n\n' + '— Lindüt Argentina');
+                    try { await fetch('https://formsubmit.co/ajax/lindutargentina@gmail.com', { method: 'POST', body: formData }); } catch (e) { console.log('Error enviando alerta OP:', e); }
+                },
+
+                async registrarProfesionalYEnviarEmail() {
+                    const usuario = this.generarUsuarioProfesional();
+                    const password = this.profesionalForm.dni;
+                    this.profesionalesRegistrados.push({
+                        nombre: this.profesionalForm.nombre, apellido: this.profesionalForm.apellido, dni: this.profesionalForm.dni,
+                        email: this.profesionalForm.email, cuit: this.profesionalForm.cuit, telefono: this.profesionalForm.telefono,
+                        especialidad: this.profesionalForm.especialidad, experiencia: this.profesionalForm.experiencia,
+                        modalidad: this.profesionalForm.modalidad, direccionLocal: this.profesionalForm.direccionLocal,
+                        diasAtencion: this.profesionalForm.diasAtencion, horarioAtencion: this.profesionalForm.horarioAtencion,
+                        usuario: usuario, opsAsignadas: []
+                    });
+                    const formData = new FormData();
+                    formData.append('_captcha', 'false');
+                    formData.append('_template', 'table');
+                    formData.append('_subject', '✨ Tus Credenciales de Acceso — Lindüt');
+                    formData.append('destinatario', this.profesionalForm.email);
+                    formData.append('mensaje', '¡Bienvenido/a a Lindüt Argentina!\n\n' + 'Tu legajo fue recibido y está en proceso de validación.\n\n' + '═══════════════════════════════════════\n' + 'TUS CREDENCIALES DE ACCESO\n' + '═══════════════════════════════════════\n\n' + 'Usuario: ' + usuario + '\n' + 'Contraseña: ' + password + ' (tu DNI sin puntos)\n\n' + '═══════════════════════════════════════\n\n' + 'Con estos datos podés ingresar a tu panel en lindut.com\n' + 'y ver las órdenes de pedido que se te asignen.\n\n' + 'Recordá que el email que nos brindaste (' + this.profesionalForm.email + ')\n' + 'es donde recibirás las alertas de nuevas OP.\n\n' + '— Lindüt Argentina');
+                    try { await fetch('https://formsubmit.co/ajax/lindutargentina@gmail.com', { method: 'POST', body: formData }); } catch (e) { console.log('Error enviando credenciales:', e); }
+                    this.profesionalEnviado = true;
+                },
+
+                generarUsuarioDesdeDatos(nombre, apellido) {
+                    if (!nombre || !apellido) return '';
+                    const apellidoPrimera = apellido.trim().charAt(0).toUpperCase();
+                    const nombreLimpio = nombre.trim().toLowerCase().replace(/\s+/g, '');
+                    return apellidoPrimera + nombreLimpio;
+                },
+
+                async altaManualProfesional() {
+                    const usuario = this.generarUsuarioDesdeDatos(this.altaForm.nombre, this.altaForm.apellido);
+                    const existe = this.profesionalesRegistrados.some(p => p.usuario === usuario || p.dni === this.altaForm.dni);
+                    if (existe) { alert('Ya existe un profesional con ese usuario o DNI.'); return; }
+                    const nuevoProfesional = {
+                        nombre: this.altaForm.nombre.trim(), apellido: this.altaForm.apellido.trim(), dni: this.altaForm.dni.trim(),
+                        email: this.altaForm.email.trim(), telefono: this.altaForm.telefono.trim(), especialidad: this.altaForm.especialidad,
+                        cuit: this.altaForm.cuit.trim(), experiencia: this.altaForm.experiencia, modalidad: this.altaForm.modalidad,
+                        usuario: usuario, activo: true, opsAsignadas: [], fechaAlta: new Date().toLocaleString('es-AR')
+                    };
+                    this.profesionalesRegistrados.push(nuevoProfesional);
+                    this.profesionalAltaReciente = nuevoProfesional;
+                    const formData = new FormData();
+                    formData.append('_captcha', 'false');
+                    formData.append('_template', 'table');
+                    formData.append('_subject', '✨ Tus Credenciales de Acceso — Lindüt');
+                    formData.append('destinatario', nuevoProfesional.email);
+                    formData.append('mensaje', '¡Bienvenido/a a Lindüt Argentina!\n\n' + 'Fuiste dado/a de alta como profesional verificado/a.\n\n' + '═══════════════════════════════════════\n' + 'TUS CREDENCIALES DE ACCESO\n' + '═══════════════════════════════════════\n\n' + 'Usuario: ' + usuario + '\n' + 'Contraseña: ' + nuevoProfesional.dni + ' (tu DNI sin puntos)\n\n' + '═══════════════════════════════════════\n\n' + 'Con estos datos podés ingresar a tu panel en lindut.com\n' + 'y ver las órdenes de pedido que se te asignen.\n\n' + '— Lindüt Argentina');
+                    try { await fetch('https://formsubmit.co/ajax/lindutargentina@gmail.com', { method: 'POST', body: formData }); } catch (e) { console.log('Error enviando credenciales:', e); }
+                    this.altaExitosa = true;
+                },
+
+                resetAltaForm() { this.altaForm = { nombre: '', apellido: '', dni: '', email: '', telefono: '', especialidad: 'Manicura / Pedicura', cuit: '', experiencia: '', modalidad: 'domicilio' }; },
+                profesionalesActivos() { return this.profesionalesRegistrados.filter(p => p.activo !== false); },
+                profesionalesDeBaja() { return this.profesionalesRegistrados.filter(p => p.activo === false); },
+                totalOPsAsignadas() { return this.profesionalesRegistrados.reduce((total, p) => total + (p.opsAsignadas ? p.opsAsignadas.length : 0), 0); },
+
+                profesionalesFiltradosAdmin() {
+                    let resultado = [...this.profesionalesRegistrados];
+                    if (this.busquedaProfesional.trim()) {
+                        const q = this.busquedaProfesional.toLowerCase();
+                        resultado = resultado.filter(p => p.nombre.toLowerCase().includes(q) || p.apellido.toLowerCase().includes(q) || p.usuario.toLowerCase().includes(q) || p.dni.includes(q) || p.especialidad.toLowerCase().includes(q) || (p.email && p.email.toLowerCase().includes(q)));
+                    }
+                    if (this.filtroEstado === 'activos') resultado = resultado.filter(p => p.activo !== false);
+                    else if (this.filtroEstado === 'bajas') resultado = resultado.filter(p => p.activo === false);
+                    if (this.filtroEspecialidad !== 'todas') resultado = resultado.filter(p => p.especialidad === this.filtroEspecialidad);
+                    return resultado;
+                },
+
+                iniciarEdicion(pro) {
+                    this.profesionalEditando = pro.usuario;
+                    this.editForm = { nombre: pro.nombre, apellido: pro.apellido, dni: pro.dni, email: pro.email, telefono: pro.telefono || '', especialidad: pro.especialidad, cuit: pro.cuit || '', experiencia: pro.experiencia || '', modalidad: pro.modalidad || 'domicilio' };
+                },
+
+                guardarEdicion() {
+                    const pro = this.profesionalesRegistrados.find(p => p.usuario === this.profesionalEditando);
+                    if (pro) {
+                        pro.nombre = this.editForm.nombre.trim(); pro.apellido = this.editForm.apellido.trim(); pro.email = this.editForm.email.trim();
+                        pro.telefono = this.editForm.telefono.trim(); pro.especialidad = this.editForm.especialidad; pro.cuit = this.editForm.cuit.trim();
+                        pro.experiencia = this.editForm.experiencia; pro.modalidad = this.editForm.modalidad;
+                        this.profesionalEditando = null;
+                    }
+                },
+
+                verHistorialOPs(pro) { this.profesionalHistorial = pro; this.modalHistorialOPs = true; },
+                verDetalleProfesional(pro) { this.profesionalDetalle = pro; this.modalDetalleProfesional = true; },
+
+                toggleEstadoProfesionalAdmin(usuario) {
+                    const pro = this.profesionalesRegistrados.find(p => p.usuario === usuario);
+                    if (!pro) return;
+                    if (pro.activo !== false) { if (confirm('¿Dar de baja a ' + pro.nombre + ' ' + pro.apellido + '?')) { pro.activo = false; pro.fechaBaja = new Date().toLocaleString('es-AR'); } }
+                    else { pro.activo = true; delete pro.fechaBaja; }
+                },
+
+                reactivarProfesional(usuario) { const pro = this.profesionalesRegistrados.find(p => p.usuario === usuario); if (pro) { pro.activo = true; delete pro.fechaBaja; } },
+
+                eliminarProfesionalAdmin(usuario) {
+                    const pro = this.profesionalesRegistrados.find(p => p.usuario === usuario);
+                    if (!pro) return;
+                    if (confirm('¿ELIMINAR DEFINITIVAMENTE a ' + pro.nombre + ' ' + pro.apellido + '?')) { const idx = this.profesionalesRegistrados.findIndex(p => p.usuario === usuario); if (idx !== -1) this.profesionalesRegistrados.splice(idx, 1); }
+                },
+
+                abrirAsignarOP(pro) {
+                    if (pro.activo === false) { alert('No se puede asignar una OP a un profesional dado de baja. Reactivalo primero.'); return; }
+                    this.profesionalAsignarOP = pro;
+                    this.opManualForm = { numero: 'LND-' + Date.now(), categoria: 'Manicura 💅', zona: '', diagnostico: '', monto: '', estado: 'pendiente', clienteNombre: '', clienteTelefono: '', clienteEmail: '' };
+                    this.modalAsignarOP = true;
+                },
+
+                async guardarOPManual() {
+                    if (!this.opManualForm.numero || !this.opManualForm.categoria || !this.opManualForm.zona || !this.opManualForm.diagnostico) { alert('Completá todos los campos obligatorios.'); return; }
+                    const nuevaOP = { numero: this.opManualForm.numero, categoria: this.opManualForm.categoria, zona: this.opManualForm.zona, diagnostico: this.opManualForm.diagnostico, monto: this.opManualForm.monto || 0, canon: this.opManualForm.monto ? Math.round(this.opManualForm.monto * 0.01) : 0, estado: this.opManualForm.estado, clienteNombre: this.opManualForm.clienteNombre, clienteTelefono: this.opManualForm.clienteTelefono, clienteEmail: this.opManualForm.clienteEmail, fechaAsignacion: new Date().toLocaleString('es-AR'), asignadaPor: 'Admin' };
+                    if (!this.profesionalAsignarOP.opsAsignadas) this.profesionalAsignarOP.opsAsignadas = [];
+                    this.profesionalAsignarOP.opsAsignadas.push(nuevaOP);
+                    await this.enviarAlertaOPPorEmail(nuevaOP, this.profesionalAsignarOP.email);
+                    alert('✅ OP asignada con éxito a ' + this.profesionalAsignarOP.nombre + ' ' + this.profesionalAsignarOP.apellido + '\n\nSe envió una alerta por email a ' + this.profesionalAsignarOP.email);
+                    this.modalAsignarOP = false; this.profesionalAsignarOP = null;
+                },
+
+                exportarCSV() {
+                    const headers = ['Nombre', 'Apellido', 'Usuario', 'DNI', 'Email', 'Telefono', 'Especialidad', 'Experiencia', 'Modalidad', 'Estado', 'Fecha Alta', 'OPs Asignadas'];
+                    const rows = this.profesionalesRegistrados.map(p => [p.nombre, p.apellido, p.usuario, p.dni, p.email, p.telefono || '', p.especialidad, p.experiencia || '0', p.modalidad || '', p.activo !== false ? 'ACTIVO' : 'BAJA', p.fechaAlta || '', (p.opsAsignadas ? p.opsAsignadas.length : 0).toString()]);
+                    const csvContent = [headers.join(','), ...rows.map(r => r.map(cell => '"' + String(cell).replace(/"/g, '""') + '"').join(','))].join('\n');
+                    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+                    const link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = 'profesionales_lindut_' + new Date().toISOString().split('T')[0] + '.csv'; link.click();
+                },
+
+                profesionales: [
+                    { id: 1, nombre: 'María López', especialidad: 'Manicura Profesional', zona: 'Palermo, CABA', experiencia: 8, match: 96, cat: 'manicura' },
+                    { id: 2, nombre: 'Carla Fernández', especialidad: 'Peluquera / Colorista', zona: 'Belgrano, CABA', experiencia: 12, match: 94, cat: 'peluqueria' },
+                    { id: 3, nombre: 'Lucas Martínez', especialidad: 'Barbero Clásico', zona: 'Palermo, CABA', experiencia: 6, match: 92, cat: 'barberia' },
+                    { id: 4, nombre: 'Sofía Ruiz', especialidad: 'Maquilladora Profesional', zona: 'Recoleta, CABA', experiencia: 10, match: 95, cat: 'maquillaje' },
+                    { id: 5, nombre: 'Valentina Sosa', especialidad: 'Esteticista Facial', zona: 'Palermo, CABA', experiencia: 7, match: 91, cat: 'estetica' },
+                    { id: 6, nombre: 'Julieta Morales', especialidad: 'Depiladora Certificada', zona: 'Caballito, CABA', experiencia: 9, match: 89, cat: 'depilacion' },
+                    { id: 7, nombre: 'Camila Torres', especialidad: 'Masajista / Spa', zona: 'Palermo, CABA', experiencia: 11, match: 93, cat: 'masajes' },
+                    { id: 8, nombre: 'Florencia Díaz', especialidad: 'Lash & Brow Artist', zona: 'Belgrano, CABA', experiencia: 5, match: 90, cat: 'pestana' }
+                ]
+            }
+        }
+    </script>
+</body>
+</html>
