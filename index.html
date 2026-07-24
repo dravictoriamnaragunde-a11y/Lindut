@@ -233,6 +233,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <base target="_blank">
 <base target="_blank">
+<base target="_blank">
 </head>
 <body class="font-body bg-lp-parchment text-lp-ink antialiased" x-data="lindutApp()">
     <script>
@@ -582,6 +583,10 @@
                                     <div><label class="block text-[9px] font-medium text-lp-warm mb-2 tracking-wide-editorial uppercase">CUIT / CUIL</label><input type="text" x-model="editForm.cuit" class="input-editorial w-full px-4 py-2.5 rounded-sm text-sm font-mono bg-lp-ivory"></div>
                                     <div><label class="block text-[9px] font-medium text-lp-warm mb-2 tracking-wide-editorial uppercase">Años de Experiencia</label><input type="number" x-model="editForm.experiencia" class="input-editorial w-full px-4 py-2.5 rounded-sm text-sm bg-lp-ivory"></div>
                                 </div>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div><label class="block text-[9px] font-medium text-lp-warm mb-2 tracking-wide-editorial uppercase">Instagram</label><input type="text" x-model="editForm.instagram" class="input-editorial w-full px-4 py-2.5 rounded-sm text-sm bg-lp-ivory"></div>
+                                    <div><label class="block text-[9px] font-medium text-lp-warm mb-2 tracking-wide-editorial uppercase">TikTok</label><input type="text" x-model="editForm.tiktok" class="input-editorial w-full px-4 py-2.5 rounded-sm text-sm bg-lp-ivory"></div>
+                                </div>
                                 <div class="flex gap-3 pt-2">
                                     <button @click="guardarEdicion()" class="bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-2.5 rounded-sm text-[10px] font-medium transition tracking-wide-editorial uppercase">Guardar Cambios</button>
                                     <button @click="profesionalEditando = null" class="bg-slate-50 hover:bg-slate-100 text-slate-600 px-6 py-2.5 rounded-sm text-[10px] font-medium transition tracking-wide-editorial uppercase">Cancelar</button>
@@ -638,6 +643,16 @@
                     <p class="text-sm"><strong>Teléfono:</strong> <span x-text="profesionalDetalle?.telefono || 'No registrado'"></span></p>
                     <p class="text-sm"><strong>Usuario:</strong> <span x-text="profesionalDetalle?.usuario" class="font-mono"></span></p>
                     <p class="text-sm"><strong>Contraseña:</strong> <span x-text="profesionalDetalle?.dni" class="font-mono"></span> (DNI sin puntos)</p>
+                    <div class="flex items-center gap-3 pt-1">
+                        <p x-show="profesionalDetalle?.instagram" class="text-sm flex items-center gap-1.5">
+                            <svg class="w-3.5 h-3.5 text-lp-gold" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                            <span x-text="profesionalDetalle?.instagram"></span>
+                        </p>
+                        <p x-show="profesionalDetalle?.tiktok" class="text-sm flex items-center gap-1.5">
+                            <svg class="w-3.5 h-3.5 text-lp-gold" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.88-2.89 2.89 2.89 0 012.88-2.89c.3 0 .59.05.86.13v-3.5a6.37 6.37 0 00-.86-.06A6.34 6.34 0 003 15.28a6.34 6.34 0 006.33 6.33 6.34 6.34 0 006.33-6.33V8.73a8.16 8.16 0 004.77 1.52V6.92a4.86 4.86 0 01-.84-.23z"/></svg>
+                            <span x-text="profesionalDetalle?.tiktok"></span>
+                        </p>
+                    </div>
                 </div>
                 <div class="bg-lp-parchment rounded-sm p-6 space-y-3 border border-lp-linen/20">
                     <p class="text-[9px] font-medium text-lp-warm uppercase tracking-[0.2em] mb-2">Datos Profesionales</p>
@@ -967,6 +982,16 @@
                             <p class="text-[11px] text-lp-stone mt-4" x-text="'Zona: ' + pro.zona"></p>
                             <p class="text-[11px] text-lp-stone" x-text="'Experiencia: ' + pro.experiencia + ' años'"></p>
                             <p class="text-[11px] text-lp-gold font-medium mt-3" x-text="'Match: ' + pro.match + '%'"></p>
+                            <div class="flex items-center gap-3 mt-3">
+                                <a x-show="pro.instagram" :href="'https://instagram.com/' + pro.instagram.replace('@','')" target="_blank" class="inline-flex items-center gap-1.5 text-[10px] text-lp-gold hover:text-lp-camel transition-colors">
+                                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                                    <span x-text="pro.instagram"></span>
+                                </a>
+                                <a x-show="pro.tiktok" :href="'https://tiktok.com/@' + pro.tiktok.replace('@','')" target="_blank" class="inline-flex items-center gap-1.5 text-[10px] text-lp-gold hover:text-lp-camel transition-colors">
+                                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.88-2.89 2.89 2.89 0 012.88-2.89c.3 0 .59.05.86.13v-3.5a6.37 6.37 0 00-.86-.06A6.34 6.34 0 003 15.28a6.34 6.34 0 006.33 6.33 6.34 6.34 0 006.33-6.33V8.73a8.16 8.16 0 004.77 1.52V6.92a4.86 4.86 0 01-.84-.23z"/></svg>
+                                    <span x-text="pro.tiktok"></span>
+                                </a>
+                            </div>
                             <div class="mt-6 pt-5 border-t border-lp-linen/20">
                                 <div class="flex items-center gap-2 mb-5">
                                     <span class="badge-editorial" :class="pro.modalidad === 'local' ? 'badge-local' : (pro.modalidad === 'domicilio' ? 'badge-domicilio' : 'badge-ambos')" x-text="pro.modalidad === 'local' ? 'Local' : (pro.modalidad === 'domicilio' ? 'Domicilio' : 'Local + Domicilio')"></span>
@@ -1098,6 +1123,16 @@
                     <div class="grid grid-cols-2 gap-6">
                         <div><label class="block text-[9px] font-medium text-lp-warm mb-2 tracking-wide-editorial uppercase">Días de Atención</label><input type="text" x-model="profesionalForm.diasAtencion" class="input-editorial w-full px-5 py-3 rounded-sm text-xs text-lp-black bg-lp-ivory" placeholder="Ej: Lun a Sáb"></div>
                         <div><label class="block text-[9px] font-medium text-lp-warm mb-2 tracking-wide-editorial uppercase">Horario de Atención</label><input type="text" x-model="profesionalForm.horarioAtencion" class="input-editorial w-full px-5 py-3 rounded-sm text-xs text-lp-black bg-lp-ivory" placeholder="Ej: 9:00 a 20:00"></div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-[9px] font-medium text-lp-warm mb-2 tracking-wide-editorial uppercase">Instagram</label>
+                            <input type="text" x-model="profesionalForm.instagram" class="input-editorial w-full px-5 py-3 rounded-sm text-xs text-lp-black bg-lp-ivory" placeholder="Ej: @maria.lopez.nails">
+                        </div>
+                        <div>
+                            <label class="block text-[9px] font-medium text-lp-warm mb-2 tracking-wide-editorial uppercase">TikTok</label>
+                            <input type="text" x-model="profesionalForm.tiktok" class="input-editorial w-full px-5 py-3 rounded-sm text-xs text-lp-black bg-lp-ivory" placeholder="Ej: @maria.lopez.nails">
+                        </div>
                     </div>
                     <div class="space-y-5 pt-4">
                         <h4 class="text-[9px] font-medium text-lp-warm uppercase tracking-[0.2em] border-b border-lp-linen/20 pb-3">Carga de Documentación Solicitada</h4>
@@ -1315,21 +1350,21 @@
                 codigosHistorial: [],
 
                 clienteForm: { nombre: '', telefono: '', email: '', calle: '', altura: '', localidad: '', provincia: '', direccion: '', aceptaLey: false, mayorEdad: false },
-                profesionalForm: { nombre: '', apellido: '', cuit: '', dni: '', email: '', telefono: '', especialidad: 'Manicura / Pedicura', experiencia: '', modalidad: 'domicilio', direccionLocal: '', diasAtencion: '', horarioAtencion: '', aceptaCanon: false, aceptaBajaUsuario: false, aceptaDatos: false },
+                profesionalForm: { nombre: '', apellido: '', cuit: '', dni: '', email: '', telefono: '', especialidad: 'Manicura / Pedicura', experiencia: '', modalidad: 'domicilio', direccionLocal: '', diasAtencion: '', horarioAtencion: '', instagram: '', tiktok: '', aceptaCanon: false, aceptaBajaUsuario: false, aceptaDatos: false },
                 profesionalEnviado: false,
                 loginUsuario: '',
                 loginPassword: '',
                 loginError: '',
                 profesionalLogueado: null,
                 profesionalesRegistrados: [],
-                altaForm: { nombre: '', apellido: '', dni: '', email: '', telefono: '', especialidad: 'Manicura / Pedicura', cuit: '', experiencia: '', modalidad: 'domicilio' },
+                altaForm: { nombre: '', apellido: '', dni: '', email: '', telefono: '', especialidad: 'Manicura / Pedicura', cuit: '', experiencia: '', modalidad: 'domicilio', instagram: '', tiktok: '' },
                 altaExitosa: false,
                 profesionalAltaReciente: null,
                 busquedaProfesional: '',
                 filtroEstado: 'todos',
                 filtroEspecialidad: 'todas',
                 profesionalEditando: null,
-                editForm: { nombre: '', apellido: '', dni: '', email: '', telefono: '', especialidad: '', cuit: '', experiencia: '', modalidad: 'domicilio' },
+                editForm: { nombre: '', apellido: '', dni: '', email: '', telefono: '', especialidad: '', cuit: '', experiencia: '', modalidad: 'domicilio', instagram: '', tiktok: '' },
                 modalHistorialOPs: false,
                 profesionalHistorial: null,
                 modalDetalleProfesional: false,
@@ -1596,7 +1631,7 @@
                 },
 
                 resetProfesionalForm() {
-                    this.profesionalForm = { nombre: '', apellido: '', cuit: '', dni: '', email: '', telefono: '', especialidad: 'Manicura / Pedicura', experiencia: '', modalidad: 'domicilio', direccionLocal: '', diasAtencion: '', horarioAtencion: '', aceptaCanon: false, aceptaBajaUsuario: false, aceptaDatos: false };
+                    this.profesionalForm = { nombre: '', apellido: '', cuit: '', dni: '', email: '', telefono: '', especialidad: 'Manicura / Pedicura', experiencia: '', modalidad: 'domicilio', direccionLocal: '', diasAtencion: '', horarioAtencion: '', instagram: '', tiktok: '', aceptaCanon: false, aceptaBajaUsuario: false, aceptaDatos: false };
                 },
 
                 loginProfesional() {
@@ -1638,6 +1673,7 @@
                         especialidad: this.profesionalForm.especialidad, experiencia: this.profesionalForm.experiencia,
                         modalidad: this.profesionalForm.modalidad, direccionLocal: this.profesionalForm.direccionLocal,
                         diasAtencion: this.profesionalForm.diasAtencion, horarioAtencion: this.profesionalForm.horarioAtencion,
+                        instagram: this.profesionalForm.instagram, tiktok: this.profesionalForm.tiktok,
                         usuario: usuario, opsAsignadas: []
                     });
                     const formData = new FormData();
@@ -1665,6 +1701,7 @@
                         nombre: this.altaForm.nombre.trim(), apellido: this.altaForm.apellido.trim(), dni: this.altaForm.dni.trim(),
                         email: this.altaForm.email.trim(), telefono: this.altaForm.telefono.trim(), especialidad: this.altaForm.especialidad,
                         cuit: this.altaForm.cuit.trim(), experiencia: this.altaForm.experiencia, modalidad: this.altaForm.modalidad,
+                        instagram: this.altaForm.instagram.trim(), tiktok: this.altaForm.tiktok.trim(),
                         usuario: usuario, activo: true, opsAsignadas: [], fechaAlta: new Date().toLocaleString('es-AR')
                     };
                     this.profesionalesRegistrados.push(nuevoProfesional);
@@ -1679,7 +1716,7 @@
                     this.altaExitosa = true;
                 },
 
-                resetAltaForm() { this.altaForm = { nombre: '', apellido: '', dni: '', email: '', telefono: '', especialidad: 'Manicura / Pedicura', cuit: '', experiencia: '', modalidad: 'domicilio' }; },
+                resetAltaForm() { this.altaForm = { nombre: '', apellido: '', dni: '', email: '', telefono: '', especialidad: 'Manicura / Pedicura', cuit: '', experiencia: '', modalidad: 'domicilio', instagram: '', tiktok: '' }; },
                 profesionalesActivos() { return this.profesionalesRegistrados.filter(p => p.activo !== false); },
                 profesionalesDeBaja() { return this.profesionalesRegistrados.filter(p => p.activo === false); },
                 totalOPsAsignadas() { return this.profesionalesRegistrados.reduce((total, p) => total + (p.opsAsignadas ? p.opsAsignadas.length : 0), 0); },
@@ -1698,7 +1735,7 @@
 
                 iniciarEdicion(pro) {
                     this.profesionalEditando = pro.usuario;
-                    this.editForm = { nombre: pro.nombre, apellido: pro.apellido, dni: pro.dni, email: pro.email, telefono: pro.telefono || '', especialidad: pro.especialidad, cuit: pro.cuit || '', experiencia: pro.experiencia || '', modalidad: pro.modalidad || 'domicilio' };
+                    this.editForm = { nombre: pro.nombre, apellido: pro.apellido, dni: pro.dni, email: pro.email, telefono: pro.telefono || '', especialidad: pro.especialidad, cuit: pro.cuit || '', experiencia: pro.experiencia || '', modalidad: pro.modalidad || 'domicilio', instagram: pro.instagram || '', tiktok: pro.tiktok || '' };
                 },
 
                 guardarEdicion() {
@@ -1707,6 +1744,7 @@
                         pro.nombre = this.editForm.nombre.trim(); pro.apellido = this.editForm.apellido.trim(); pro.email = this.editForm.email.trim();
                         pro.telefono = this.editForm.telefono.trim(); pro.especialidad = this.editForm.especialidad; pro.cuit = this.editForm.cuit.trim();
                         pro.experiencia = this.editForm.experiencia; pro.modalidad = this.editForm.modalidad;
+                        pro.instagram = this.editForm.instagram.trim(); pro.tiktok = this.editForm.tiktok.trim();
                         this.profesionalEditando = null;
                     }
                 },
@@ -1747,22 +1785,22 @@
                 },
 
                 exportarCSV() {
-                    const headers = ['Nombre', 'Apellido', 'Usuario', 'DNI', 'Email', 'Telefono', 'Especialidad', 'Experiencia', 'Modalidad', 'Estado', 'Fecha Alta', 'OPs Asignadas'];
-                    const rows = this.profesionalesRegistrados.map(p => [p.nombre, p.apellido, p.usuario, p.dni, p.email, p.telefono || '', p.especialidad, p.experiencia || '0', p.modalidad || '', p.activo !== false ? 'ACTIVO' : 'BAJA', p.fechaAlta || '', (p.opsAsignadas ? p.opsAsignadas.length : 0).toString()]);
+                    const headers = ['Nombre', 'Apellido', 'Usuario', 'DNI', 'Email', 'Telefono', 'Especialidad', 'Experiencia', 'Modalidad', 'Instagram', 'TikTok', 'Estado', 'Fecha Alta', 'OPs Asignadas'];
+                    const rows = this.profesionalesRegistrados.map(p => [p.nombre, p.apellido, p.usuario, p.dni, p.email, p.telefono || '', p.especialidad, p.experiencia || '0', p.modalidad || '', p.instagram || '', p.tiktok || '', p.activo !== false ? 'ACTIVO' : 'BAJA', p.fechaAlta || '', (p.opsAsignadas ? p.opsAsignadas.length : 0).toString()]);
                     const csvContent = [headers.join(','), ...rows.map(r => r.map(cell => '"' + String(cell).replace(/"/g, '""') + '"').join(','))].join('\n');
                     const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
                     const link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = 'profesionales_lindut_' + new Date().toISOString().split('T')[0] + '.csv'; link.click();
                 },
 
                 profesionales: [
-                    { id: 1, nombre: 'María López', especialidad: 'Manicura Profesional', zona: 'Palermo, CABA', experiencia: 8, match: 96, cat: 'manicura', modalidad: 'ambos' },
-                    { id: 2, nombre: 'Carla Fernández', especialidad: 'Peluquera / Colorista', zona: 'Belgrano, CABA', experiencia: 12, match: 94, cat: 'peluqueria', modalidad: 'local' },
-                    { id: 3, nombre: 'Lucas Martínez', especialidad: 'Barbero Clásico', zona: 'Palermo, CABA', experiencia: 6, match: 92, cat: 'barberia', modalidad: 'domicilio' },
-                    { id: 4, nombre: 'Sofía Ruiz', especialidad: 'Maquilladora Profesional', zona: 'Recoleta, CABA', experiencia: 10, match: 95, cat: 'maquillaje', modalidad: 'ambos' },
-                    { id: 5, nombre: 'Valentina Sosa', especialidad: 'Esteticista Facial', zona: 'Palermo, CABA', experiencia: 7, match: 91, cat: 'estetica', modalidad: 'local' },
-                    { id: 6, nombre: 'Julieta Morales', especialidad: 'Depiladora Certificada', zona: 'Caballito, CABA', experiencia: 9, match: 89, cat: 'depilacion', modalidad: 'domicilio' },
-                    { id: 7, nombre: 'Camila Torres', especialidad: 'Masajista / Spa', zona: 'Palermo, CABA', experiencia: 11, match: 93, cat: 'masajes', modalidad: 'ambos' },
-                    { id: 8, nombre: 'Florencia Díaz', especialidad: 'Lash & Brow Artist', zona: 'Belgrano, CABA', experiencia: 5, match: 90, cat: 'pestana', modalidad: 'local' }
+                    { id: 1, nombre: 'María López', especialidad: 'Manicura Profesional', zona: 'Palermo, CABA', experiencia: 8, match: 96, cat: 'manicura', modalidad: 'ambos', instagram: '@maria.lopez.nails', tiktok: '@maria.nails' },
+                    { id: 2, nombre: 'Carla Fernández', especialidad: 'Peluquera / Colorista', zona: 'Belgrano, CABA', experiencia: 12, match: 94, cat: 'peluqueria', modalidad: 'local', instagram: '@carla.pelu', tiktok: '' },
+                    { id: 3, nombre: 'Lucas Martínez', especialidad: 'Barbero Clásico', zona: 'Palermo, CABA', experiencia: 6, match: 92, cat: 'barberia', modalidad: 'domicilio', instagram: '@lucas.barber', tiktok: '@lucas.barber' },
+                    { id: 4, nombre: 'Sofía Ruiz', especialidad: 'Maquilladora Profesional', zona: 'Recoleta, CABA', experiencia: 10, match: 95, cat: 'maquillaje', modalidad: 'ambos', instagram: '@sofia.makeup', tiktok: '@sofia.makeup' },
+                    { id: 5, nombre: 'Valentina Sosa', especialidad: 'Esteticista Facial', zona: 'Palermo, CABA', experiencia: 7, match: 91, cat: 'estetica', modalidad: 'local', instagram: '@valen.estetica', tiktok: '' },
+                    { id: 6, nombre: 'Julieta Morales', especialidad: 'Depiladora Certificada', zona: 'Caballito, CABA', experiencia: 9, match: 89, cat: 'depilacion', modalidad: 'domicilio', instagram: '@juli.depi', tiktok: '@juli.depi' },
+                    { id: 7, nombre: 'Camila Torres', especialidad: 'Masajista / Spa', zona: 'Palermo, CABA', experiencia: 11, match: 93, cat: 'masajes', modalidad: 'ambos', instagram: '@camila.spa', tiktok: '' },
+                    { id: 8, nombre: 'Florencia Díaz', especialidad: 'Lash & Brow Artist', zona: 'Belgrano, CABA', experiencia: 5, match: 90, cat: 'pestana', modalidad: 'local', instagram: '@flor.lash', tiktok: '@flor.lash' }
                 ]
             }
         }
